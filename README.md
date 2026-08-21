@@ -9,10 +9,12 @@ it — nothing accumulates between syncs, so the repo stays small. No trend
 history or personal bests are tracked; if you want those back later, say so.
 
 > Note: there's no API for writing directly into a Claude Project's knowledge
-> base, so this tool exports clean files instead. Upload `data/summary.md`
-> (and `data/activity.csv` / `data/splits.csv` if you want raw detail) into
-> your Claude Project, or paste `summary.md` into a chat with the project
-> active.
+> base, so this tool exports clean files instead. **Upload just
+> `data/summary.md`** — it's a single self-contained report with everything:
+> summary stats, splits, HR zones, and the full chart-data samples. The other
+> files (`activity.csv`, `splits.csv`, `timeseries.csv`, `hr_zones.csv`, raw
+> JSON) hold the same data broken out separately, for anyone who wants the
+> pieces individually — you don't need them for the Claude Project upload.
 
 ## Setup
 
@@ -62,24 +64,18 @@ There's no schedule — it only runs when you trigger it.
 
 ## Output (`data/`)
 
-- `activity.csv` — one row for your latest run: date, distance, duration,
-  avg/best pace, elevation, HR, calories (total/active/resting), training
-  effect, VO2max, cadence, stride length, moderate/vigorous/total intensity
-  minutes, sweat loss estimate — everything Garmin Connect's Stats tab shows.
-- `splits.csv` — per-lap breakdown (pace/HR per split) for that run.
-- `timeseries.csv` — the second-by-second (or near it) samples behind the
-  app's **Charts** tab: timestamp, distance, HR, pace/speed, elevation,
-  cadence, wherever Garmin includes them. Column names come straight from
-  Garmin's own field names, so this works even if a run has a slightly
-  different metric set (e.g. no cadence on a treadmill run).
-- `hr_zones.csv` — the Time-in-Heart-Rate-Zones breakdown: zone, low bound
-  (bpm), minutes, % of run.
-- `activity_raw.json` — the raw Garmin Connect list-view payload for the run.
-- `activity_detail_raw.json` — the raw per-activity detail payload, for
-  anything not already pulled into the CSV.
-- `summary.md` — a human-readable digest of the above (including the HR
-  zone table), meant to be pasted or uploaded straight into your Claude
-  Project.
+- **`summary.md`** — the one file to upload: date/name, summary stats
+  (distance, duration, avg/best pace, elevation, HR, calories, training
+  effect, VO2max, cadence, stride length, intensity minutes, sweat loss),
+  the splits table, the Time-in-HR-Zones table, and the full Charts-tab
+  timeseries table (timestamp, distance, HR, pace/speed, elevation, cadence
+  — whatever Garmin includes for that run).
+- `activity.csv` — the same summary stats as one CSV row, if you want it
+  separately.
+- `splits.csv` / `hr_zones.csv` / `timeseries.csv` — the same three tables
+  from `summary.md`, as standalone CSVs.
+- `activity_raw.json` / `activity_detail_raw.json` — the raw Garmin Connect
+  payloads, for anything not already pulled into the CSV/Markdown.
 
 ## Notes
 

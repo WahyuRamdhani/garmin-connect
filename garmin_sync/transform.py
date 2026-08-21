@@ -119,14 +119,25 @@ def timeseries_to_rows(details: dict[str, Any]) -> list[dict[str, Any]]:
     """Flatten a get_activity_details() payload (the Charts tab's raw samples)
     into one row per sample. Column names come straight from Garmin's own
     metricDescriptors, so this works regardless of exactly which metrics a
-    given activity type includes.
+    given activity type includes. Adds an elapsed_s column (seconds since the
+    first sample) when a timestamp-like field is present, for readability.
     """
     descriptors = details.get("metricDescriptors") or []
     ordered_keys = [
         d.get("key") for d in sorted(descriptors, key=lambda d: d.get("metricsIndex", 0))
     ]
     samples = details.get("activityDetailMetrics") or []
-    return [dict(zip(ordered_keys, sample.get("metrics") or [])) for sample in samples]
+    rows = [dict(zip(ordered_keys, sample.get("metrics") or [])) for sample in samples]
+
+    timestamp_key = next((k for k in ordered_keys if k and "timestamp" in k.lower()), None)
+    if timestamp_key and rows:
+        first_ts = rows[0].get(timestamp_key)
+        if isinstance(first_ts, (int, float)):
+            for row in rows:
+                ts = row.get(timestamp_key)
+                row["elapsed_s"] = round((ts - first_ts) / 1000, 1) if isinstance(ts, (int, float)) else None
+
+    return rows
 
 
 def hr_zones_to_rows(zones: Iterable[dict[str, Any]]) -> list[dict[str, Any]]:

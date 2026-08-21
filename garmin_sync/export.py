@@ -50,14 +50,23 @@ def write_json(path: Path, data: Any) -> None:
     path.write_text(json.dumps(data, indent=2, default=str))
 
 
+def _write_table(lines: list[str], columns: list[str], rows: list[dict[str, Any]]) -> None:
+    lines.append("| " + " | ".join(columns) + " |")
+    lines.append("|" + "|".join(["---"] * len(columns)) + "|")
+    for r in rows:
+        lines.append("| " + " | ".join(str(r.get(c, "")) for c in columns) + " |")
+
+
 def write_run_summary_md(
     path: Path,
     row: dict[str, Any],
     splits: list[dict[str, Any]],
     hr_zones: list[dict[str, Any]] | None = None,
+    timeseries: list[dict[str, Any]] | None = None,
 ) -> None:
-    """Write a human-readable digest of the latest run, meant to be pasted or
-    uploaded straight into a Claude Project."""
+    """Write a single, self-contained Markdown report for the latest run -
+    summary stats, splits, HR zones, and the full chart-data samples - so
+    there's just one file to upload into a Claude Project."""
     path.parent.mkdir(parents=True, exist_ok=True)
     lines = [f"# Latest run - {row.get('name') or 'Run'}", ""]
     start_time = row.get("start_time")
@@ -77,21 +86,49 @@ def write_run_summary_md(
 
     if splits:
         lines.append("## Splits")
-        lines.append("| # | Distance (km) | Duration (min) | Pace (min/km) | Avg HR | Max HR | Elev gain (m) |")
-        lines.append("|---|---|---|---|---|---|---|")
-        for s in splits:
-            lines.append(
-                f"| {s['split_index']} | {s['distance_km']} | {s['duration_min']} | "
-                f"{s['pace_min_per_km']} | {s['avg_hr']} | {s['max_hr']} | {s['elevation_gain_m']} |"
-            )
+        _write_table(
+            lines,
+            ["#", "Distance (km)", "Duration (min)", "Pace (min/km)", "Avg HR", "Max HR", "Elev gain (m)"],
+            [
+                {
+                    "#": s["split_index"],
+                    "Distance (km)": s["distance_km"],
+                    "Duration (min)": s["duration_min"],
+                    "Pace (min/km)": s["pace_min_per_km"],
+                    "Avg HR": s["avg_hr"],
+                    "Max HR": s["max_hr"],
+                    "Elev gain (m)": s["elevation_gain_m"],
+                }
+                for s in splits
+            ],
+        )
         lines.append("")
 
     if hr_zones:
         lines.append("## Time in Heart Rate Zones")
-        lines.append("| Zone | Low bound (bpm) | Duration (min) | % of run |")
-        lines.append("|---|---|---|---|")
-        for z in hr_zones:
-            lines.append(f"| {z['zone']} | {z['low_bpm']} | {z['duration_min']} | {z['percent']}% |")
+        _write_table(
+            lines,
+            ["Zone", "Low bound (bpm)", "Duration (min)", "% of run"],
+            [
+                {
+                    "Zone": z["zone"],
+                    "Low bound (bpm)": z["low_bpm"],
+                    "Duration (min)": z["duration_min"],
+                    "% of run": f"{z['percent']}%",
+                }
+                for z in hr_zones
+            ],
+        )
+        lines.append("")
+
+    if timeseries:
+        lines.append("## Timeseries (Charts tab data)")
+        lines.append(
+            f"{len(timeseries)} samples. Column names are Garmin's own field "
+            "names; `elapsed_s` is seconds since the run started."
+        )
+        lines.append("")
+        _write_table(lines, list(timeseries[0].keys()), timeseries)
         lines.append("")
 
     path.write_text("\n".join(lines))

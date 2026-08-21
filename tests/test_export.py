@@ -65,3 +65,28 @@ def test_write_run_summary_md_includes_hr_zones(tmp_path):
     text = path.read_text()
     assert "Time in Heart Rate Zones" in text
     assert "| 2 | 113 | 26.6 | 66.0% |" in text
+
+
+TIMESERIES = [
+    {"elapsed_s": 0.0, "directHeartRate": 120, "sumDistance": 0.0},
+    {"elapsed_s": 1.0, "directHeartRate": 122, "sumDistance": 2.7},
+]
+
+
+def test_write_run_summary_md_includes_timeseries(tmp_path):
+    path = tmp_path / "summary.md"
+    write_run_summary_md(path, ROW, SPLITS, HR_ZONES, TIMESERIES)
+    text = path.read_text()
+    assert "Timeseries (Charts tab data)" in text
+    assert "2 samples" in text
+    assert "| elapsed_s | directHeartRate | sumDistance |" in text
+    assert "| 0.0 | 120 | 0.0 |" in text
+
+
+def test_write_run_summary_md_is_single_self_contained_file(tmp_path):
+    """The whole point: one file with everything, for easy upload."""
+    path = tmp_path / "summary.md"
+    write_run_summary_md(path, ROW, SPLITS, HR_ZONES, TIMESERIES)
+    text = path.read_text()
+    for heading in ("## Summary", "## Splits", "## Time in Heart Rate Zones", "## Timeseries"):
+        assert heading in text

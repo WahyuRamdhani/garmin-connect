@@ -97,7 +97,13 @@ def test_timeseries_to_rows_orders_columns_by_metrics_index():
     rows = timeseries_to_rows(TIMESERIES_DETAIL)
     assert len(rows) == 2
     # descriptor order is 0,1,2 regardless of the order they appear in the list
-    assert rows[0] == {"directTimestamp": 1700000000000, "sumDistance": 0.0, "directHeartRate": 120}
+    assert rows[0] == {
+        "directTimestamp": 1700000000000,
+        "sumDistance": 0.0,
+        "directHeartRate": 120,
+        "elapsed_s": 0.0,
+    }
+    assert rows[1]["elapsed_s"] == 1.0
 
 
 def test_timeseries_to_rows_empty_detail_returns_empty():

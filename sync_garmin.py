@@ -6,11 +6,13 @@ Usage:
 
 Reads GARMIN_EMAIL / GARMIN_PASSWORD from the environment (or a .env file).
 Fetches only the single most recent running activity and replaces
---output-dir with its full detail, including the app's Charts-tab data:
-activity.csv, activity_raw.json, activity_detail_raw.json, splits.csv,
-timeseries.csv, hr_zones.csv, and summary.md - ready to upload into your
-Claude Project's knowledge base for analysis. Nothing accumulates between
-runs; each sync starts from a clean output directory.
+--output-dir with its full detail, including the app's Charts-tab data.
+summary.md is a single self-contained report (stats, splits, HR zones,
+full chart-data samples) meant to be the one file you upload into your
+Claude Project; activity.csv/splits.csv/timeseries.csv/hr_zones.csv and
+the raw JSON payloads are also written alongside it for anyone who wants
+the pieces separately. Nothing accumulates between runs; each sync starts
+from a clean output directory.
 """
 from __future__ import annotations
 
@@ -110,13 +112,13 @@ def main() -> None:
         write_csv(out_dir / "hr_zones.csv", hr_zone_rows)
 
     write_csv(out_dir / "activity.csv", [row])
-    write_run_summary_md(out_dir / "summary.md", row, split_rows, hr_zone_rows)
+    write_run_summary_md(out_dir / "summary.md", row, split_rows, hr_zone_rows, timeseries_rows)
 
     print(f"\nDone. Latest run ({row['date']} - {row['name']}) exported to {out_dir}/")
+    print("  - summary.md  <- upload just this one file to your Claude Project")
     print("  - activity.csv, activity_raw.json, activity_detail_raw.json")
     print(f"  - splits.csv ({len(split_rows)} laps)")
     print(f"  - timeseries.csv ({len(timeseries_rows)} samples), hr_zones.csv")
-    print("  - summary.md")
 
 
 if __name__ == "__main__":
