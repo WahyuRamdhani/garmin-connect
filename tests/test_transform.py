@@ -1,5 +1,7 @@
 from garmin_sync.transform import (
     activities_to_rows,
+    extract_detail_fields,
+    merge_detail,
     monthly_trends,
     personal_bests,
     splits_to_rows,
@@ -81,3 +83,36 @@ def test_personal_bests():
     bests = personal_bests(rows)
     assert bests["longest_run"]["activity_id"] == 2
     assert bests["fastest_pace"]["activity_id"] == 1
+
+
+DETAIL = {
+    "summaryDTO": {
+        "maxSpeed": 2.427,  # m/s -> ~6:52 min/km
+        "moderateIntensityMinutes": 32,
+        "vigorousIntensityMinutes": 7,
+    },
+    "avgStrideLength": 0.63,
+    "waterEstimated": 239,
+}
+
+
+def test_extract_detail_fields_reads_nested_and_top_level_keys():
+    fields = extract_detail_fields(DETAIL)
+    assert fields["avg_stride_length_m"] == 0.63
+    assert fields["sweat_loss_ml"] == 239
+    assert fields["moderate_intensity_min"] == 32
+    assert fields["vigorous_intensity_min"] == 7
+    assert fields["total_intensity_min"] == 46  # 32 + 2*7, matches Garmin's WHO-style weighting
+    assert fields["best_pace_min_per_km"] == round(1000 / (2.427 * 60), 2)
+
+
+def test_extract_detail_fields_empty_detail_returns_empty():
+    assert extract_detail_fields({}) == {}
+
+
+def test_merge_detail_adds_fields_without_dropping_existing():
+    row = {"activity_id": 1, "distance_km": 5.0}
+    merged = merge_detail(row, DETAIL)
+    assert merged["activity_id"] == 1
+    assert merged["distance_km"] == 5.0
+    assert merged["avg_stride_length_m"] == 0.63

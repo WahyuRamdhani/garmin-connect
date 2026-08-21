@@ -62,3 +62,14 @@ def fetch_splits(garmin: Garmin, activity_id: int) -> list[dict[str, Any]]:
     except (GarminConnectConnectionError, GarminConnectTooManyRequestsError):
         return []
     return data.get("lapDTOs", []) if isinstance(data, dict) else []
+
+
+def fetch_activity_detail(garmin: Garmin, activity_id: int) -> dict[str, Any]:
+    """Fetch the full per-activity detail payload (richer than the list view) -
+    this is where best pace, stride length, intensity minutes, etc. live.
+    Returns {} on failure.
+    """
+    try:
+        return garmin.get_activity(str(activity_id))
+    except (GarminConnectConnectionError, GarminConnectTooManyRequestsError):
+        return {}

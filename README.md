@@ -40,7 +40,14 @@ By default this pulls your entire running history. Narrow it with:
 ```bash
 python sync_garmin.py --start-date 2025-01-01 --end-date 2026-08-21
 python sync_garmin.py --skip-splits   # faster: skip per-lap detail
+python sync_garmin.py --skip-detail   # faster: skip best pace/stride/intensity minutes
 ```
+
+Each run costs two extra API calls per activity (splits + extended detail), on
+top of the one call for the activity list. That's fine at normal running
+volumes but can be slow or hit rate limits on a first sync of a very long
+history — use `--skip-splits`/`--skip-detail` or a narrower `--start-date` if
+that happens, then re-run without them later to backfill.
 
 ## Automatic sync (no laptop needed)
 
@@ -63,15 +70,25 @@ want it closer to real-time.
 
 ## Output (`data/`)
 
-- `activities.csv` — one row per run: date, distance, duration, pace,
-  elevation, HR, calories, training effect, VO2max, cadence.
+- `activities.csv` — one row per run: date, distance, duration, avg/best pace,
+  elevation, HR, calories (total/active/resting), training effect, VO2max,
+  cadence, stride length, moderate/vigorous/total intensity minutes, sweat
+  loss estimate — everything Garmin Connect's Stats tab shows.
 - `splits.csv` — per-lap breakdown (pace/HR per split) for every run.
-- `activities_raw.json` — the raw Garmin Connect payload, for anything not
-  captured in the CSV.
+- `activities_raw.json` — the raw Garmin Connect list-view payload.
+- `activity_details_raw.json` — the raw per-activity detail payload (keyed by
+  activity ID), for anything not already pulled into the CSV.
 - `trends.json` — weekly/monthly mileage and pace aggregates, plus personal
   bests (fastest pace, longest run, best week).
 - `summary.md` — a human-readable digest of the above, meant to be pasted or
   uploaded straight into your Claude Project.
+
+Not included: the second-by-second pace/HR/elevation chart data behind the
+**Charts** tab in the app. That comes from a separate, much heavier endpoint
+(up to 2000 samples per run) — fine for pulling one run at a time, but would
+balloon this repo fast if synced for your whole history. Ask if you want that
+added as an on-demand, single-activity export instead of part of the regular
+sync.
 
 ## Notes
 

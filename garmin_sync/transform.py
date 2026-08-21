@@ -54,6 +54,56 @@ def activities_to_rows(activities: Iterable[dict[str, Any]]) -> list[dict[str, A
     return rows
 
 
+# Garmin's per-activity detail endpoint is undocumented and inconsistent about
+# whether a field sits at the top level or nested under summaryDTO, so each
+# metric lists candidate key names and we take the first one present.
+_DETAIL_FIELD_CANDIDATES = {
+    "avg_stride_length_m": ("avgStrideLength", "strideLength"),
+    "moderate_intensity_min": ("moderateIntensityMinutes",),
+    "vigorous_intensity_min": ("vigorousIntensityMinutes",),
+    "sweat_loss_ml": ("waterEstimated", "sweatLossInMilliliters", "sweatLoss"),
+    "active_calories": ("activeKilocalories", "burnedKilocalories"),
+    "resting_calories": ("bmrCalories", "restingCalories"),
+}
+_MAX_SPEED_KEYS = ("maxSpeed",)
+
+
+def _first_present(detail: dict[str, Any], keys: tuple[str, ...]) -> Any:
+    summary = detail.get("summaryDTO") or {}
+    for key in keys:
+        if detail.get(key) is not None:
+            return detail[key]
+        if summary.get(key) is not None:
+            return summary[key]
+    return None
+
+
+def extract_detail_fields(detail: dict[str, Any]) -> dict[str, Any]:
+    """Pull the extra Stats-tab metrics (best pace, stride length, intensity
+    minutes, sweat loss, calorie breakdown) out of a get_activity() payload.
+    Any field Garmin doesn't return comes back as None rather than erroring.
+    """
+    if not detail:
+        return {}
+
+    fields = {name: _first_present(detail, keys) for name, keys in _DETAIL_FIELD_CANDIDATES.items()}
+
+    max_speed = _first_present(detail, _MAX_SPEED_KEYS)
+    fields["best_pace_min_per_km"] = round(1000 / (max_speed * 60), 2) if max_speed else None
+
+    moderate = fields["moderate_intensity_min"]
+    vigorous = fields["vigorous_intensity_min"]
+    fields["total_intensity_min"] = (
+        (moderate or 0) + 2 * (vigorous or 0) if moderate is not None or vigorous is not None else None
+    )
+
+    return fields
+
+
+def merge_detail(row: dict[str, Any], detail: dict[str, Any]) -> dict[str, Any]:
+    return {**row, **extract_detail_fields(detail)}
+
+
 def split_to_row(activity_id: int, index: int, lap: dict[str, Any]) -> dict[str, Any]:
     distance_m = lap.get("distance")
     duration_s = lap.get("duration")
