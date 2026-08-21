@@ -39,10 +39,12 @@ use).
 python sync_garmin.py
 python sync_garmin.py --skip-splits   # faster: skip per-lap detail
 python sync_garmin.py --skip-detail   # faster: skip best pace/stride/intensity minutes
+python sync_garmin.py --skip-charts   # faster: skip second-by-second chart data + HR zones
 ```
 
-Three API calls total (activity lookup, splits, extended detail) — light
-enough to run as often as you like.
+Five API calls total (activity lookup, splits, extended detail, chart
+samples, HR zones) — light enough to run as often as you like, since it's
+just one run's worth of data each time.
 
 ## Manual sync from your phone
 
@@ -65,15 +67,19 @@ There's no schedule — it only runs when you trigger it.
   effect, VO2max, cadence, stride length, moderate/vigorous/total intensity
   minutes, sweat loss estimate — everything Garmin Connect's Stats tab shows.
 - `splits.csv` — per-lap breakdown (pace/HR per split) for that run.
+- `timeseries.csv` — the second-by-second (or near it) samples behind the
+  app's **Charts** tab: timestamp, distance, HR, pace/speed, elevation,
+  cadence, wherever Garmin includes them. Column names come straight from
+  Garmin's own field names, so this works even if a run has a slightly
+  different metric set (e.g. no cadence on a treadmill run).
+- `hr_zones.csv` — the Time-in-Heart-Rate-Zones breakdown: zone, low bound
+  (bpm), minutes, % of run.
 - `activity_raw.json` — the raw Garmin Connect list-view payload for the run.
 - `activity_detail_raw.json` — the raw per-activity detail payload, for
   anything not already pulled into the CSV.
-- `summary.md` — a human-readable digest of the above, meant to be pasted or
-  uploaded straight into your Claude Project.
-
-Not included: the second-by-second pace/HR/elevation chart data behind the
-**Charts** tab in the app, and the Time-in-HR-Zones breakdown. Those come
-from a separate, heavier endpoint — ask if you want either added.
+- `summary.md` — a human-readable digest of the above (including the HR
+  zone table), meant to be pasted or uploaded straight into your Claude
+  Project.
 
 ## Notes
 

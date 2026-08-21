@@ -69,3 +69,24 @@ def fetch_activity_detail(garmin: Garmin, activity_id: int) -> dict[str, Any]:
         return garmin.get_activity(str(activity_id))
     except (GarminConnectConnectionError, GarminConnectTooManyRequestsError):
         return {}
+
+
+def fetch_activity_timeseries(garmin: Garmin, activity_id: int) -> dict[str, Any]:
+    """Fetch the second-by-second sample data behind the app's Charts tab
+    (pace/HR/elevation/cadence over time). Returns {} on failure.
+    """
+    try:
+        return garmin.get_activity_details(str(activity_id))
+    except (GarminConnectConnectionError, GarminConnectTooManyRequestsError):
+        return {}
+
+
+def fetch_hr_zones(garmin: Garmin, activity_id: int) -> list[dict[str, Any]]:
+    """Fetch the Time-in-Heart-Rate-Zones breakdown for a single activity.
+    Returns [] on failure.
+    """
+    try:
+        data = garmin.get_activity_hr_in_timezones(str(activity_id))
+    except (GarminConnectConnectionError, GarminConnectTooManyRequestsError):
+        return []
+    return data if isinstance(data, list) else []

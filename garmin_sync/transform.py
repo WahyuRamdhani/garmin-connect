@@ -113,3 +113,39 @@ def split_to_row(activity_id: int, index: int, lap: dict[str, Any]) -> dict[str,
 
 def splits_to_rows(activity_id: int, laps: Iterable[dict[str, Any]]) -> list[dict[str, Any]]:
     return [split_to_row(activity_id, i + 1, lap) for i, lap in enumerate(laps)]
+
+
+def timeseries_to_rows(details: dict[str, Any]) -> list[dict[str, Any]]:
+    """Flatten a get_activity_details() payload (the Charts tab's raw samples)
+    into one row per sample. Column names come straight from Garmin's own
+    metricDescriptors, so this works regardless of exactly which metrics a
+    given activity type includes.
+    """
+    descriptors = details.get("metricDescriptors") or []
+    ordered_keys = [
+        d.get("key") for d in sorted(descriptors, key=lambda d: d.get("metricsIndex", 0))
+    ]
+    samples = details.get("activityDetailMetrics") or []
+    return [dict(zip(ordered_keys, sample.get("metrics") or [])) for sample in samples]
+
+
+def hr_zones_to_rows(zones: Iterable[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Turn a get_activity_hr_in_timezones() payload into the Time-in-HR-Zones
+    breakdown shown in the app (zone, low bound, minutes, percent of run).
+    """
+    zones = list(zones)
+    if not zones:
+        return []
+    total_secs = sum(z.get("secsInZone") or 0 for z in zones)
+    rows = []
+    for z in zones:
+        secs = z.get("secsInZone") or 0
+        rows.append(
+            {
+                "zone": z.get("zoneNumber"),
+                "low_bpm": z.get("zoneLowBoundary"),
+                "duration_min": round(secs / 60, 2),
+                "percent": round(100 * secs / total_secs, 1) if total_secs else None,
+            }
+        )
+    return rows

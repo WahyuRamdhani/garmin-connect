@@ -51,3 +51,17 @@ def test_write_csv_single_row(tmp_path):
     lines = path.read_text().splitlines()
     assert lines[0].startswith("activity_id,name,date")
     assert len(lines) == 2
+
+
+HR_ZONES = [
+    {"zone": 2, "low_bpm": 113, "duration_min": 26.6, "percent": 66.0},
+    {"zone": 4, "low_bpm": 150, "duration_min": 7.22, "percent": 18.0},
+]
+
+
+def test_write_run_summary_md_includes_hr_zones(tmp_path):
+    path = tmp_path / "summary.md"
+    write_run_summary_md(path, ROW, SPLITS, HR_ZONES)
+    text = path.read_text()
+    assert "Time in Heart Rate Zones" in text
+    assert "| 2 | 113 | 26.6 | 66.0% |" in text

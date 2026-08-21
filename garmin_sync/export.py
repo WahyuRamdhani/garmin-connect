@@ -50,7 +50,12 @@ def write_json(path: Path, data: Any) -> None:
     path.write_text(json.dumps(data, indent=2, default=str))
 
 
-def write_run_summary_md(path: Path, row: dict[str, Any], splits: list[dict[str, Any]]) -> None:
+def write_run_summary_md(
+    path: Path,
+    row: dict[str, Any],
+    splits: list[dict[str, Any]],
+    hr_zones: list[dict[str, Any]] | None = None,
+) -> None:
     """Write a human-readable digest of the latest run, meant to be pasted or
     uploaded straight into a Claude Project."""
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -79,6 +84,14 @@ def write_run_summary_md(path: Path, row: dict[str, Any], splits: list[dict[str,
                 f"| {s['split_index']} | {s['distance_km']} | {s['duration_min']} | "
                 f"{s['pace_min_per_km']} | {s['avg_hr']} | {s['max_hr']} | {s['elevation_gain_m']} |"
             )
+        lines.append("")
+
+    if hr_zones:
+        lines.append("## Time in Heart Rate Zones")
+        lines.append("| Zone | Low bound (bpm) | Duration (min) | % of run |")
+        lines.append("|---|---|---|---|")
+        for z in hr_zones:
+            lines.append(f"| {z['zone']} | {z['low_bpm']} | {z['duration_min']} | {z['percent']}% |")
         lines.append("")
 
     path.write_text("\n".join(lines))

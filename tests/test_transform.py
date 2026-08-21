@@ -1,8 +1,10 @@
 from garmin_sync.transform import (
     activity_to_row,
     extract_detail_fields,
+    hr_zones_to_rows,
     merge_detail,
     splits_to_rows,
+    timeseries_to_rows,
 )
 
 ACTIVITY = {
@@ -76,3 +78,47 @@ def test_merge_detail_adds_fields_without_dropping_existing():
     assert merged["activity_id"] == 1
     assert merged["distance_km"] == 5.0
     assert merged["avg_stride_length_m"] == 0.63
+
+
+TIMESERIES_DETAIL = {
+    "metricDescriptors": [
+        {"metricsIndex": 0, "key": "directTimestamp"},
+        {"metricsIndex": 2, "key": "directHeartRate"},
+        {"metricsIndex": 1, "key": "sumDistance"},
+    ],
+    "activityDetailMetrics": [
+        {"metrics": [1700000000000, 0.0, 120]},
+        {"metrics": [1700000001000, 2.5, 122]},
+    ],
+}
+
+
+def test_timeseries_to_rows_orders_columns_by_metrics_index():
+    rows = timeseries_to_rows(TIMESERIES_DETAIL)
+    assert len(rows) == 2
+    # descriptor order is 0,1,2 regardless of the order they appear in the list
+    assert rows[0] == {"directTimestamp": 1700000000000, "sumDistance": 0.0, "directHeartRate": 120}
+
+
+def test_timeseries_to_rows_empty_detail_returns_empty():
+    assert timeseries_to_rows({}) == []
+
+
+HR_ZONES_RAW = [
+    {"zoneNumber": 1, "secsInZone": 0.0, "zoneLowBoundary": 94},
+    {"zoneNumber": 2, "secsInZone": 1596.0, "zoneLowBoundary": 113},
+    {"zoneNumber": 3, "secsInZone": 371.0, "zoneLowBoundary": 132},
+    {"zoneNumber": 4, "secsInZone": 433.0, "zoneLowBoundary": 150},
+    {"zoneNumber": 5, "secsInZone": 0.0, "zoneLowBoundary": 168},
+]
+
+
+def test_hr_zones_to_rows_computes_minutes_and_percent():
+    rows = hr_zones_to_rows(HR_ZONES_RAW)
+    assert rows[1]["zone"] == 2
+    assert rows[1]["duration_min"] == 26.6
+    assert rows[1]["percent"] == 66.5  # 1596s / 2400s total
+
+
+def test_hr_zones_to_rows_empty_returns_empty():
+    assert hr_zones_to_rows([]) == []
