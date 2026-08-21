@@ -42,6 +42,25 @@ python sync_garmin.py --start-date 2025-01-01 --end-date 2026-08-21
 python sync_garmin.py --skip-splits   # faster: skip per-lap detail
 ```
 
+## Automatic sync (no laptop needed)
+
+A GitHub Actions workflow (`.github/workflows/garmin-sync.yml`) runs this on
+a schedule (twice daily by default) and commits the updated `data/` files
+back to the repo automatically — nothing to open on your phone or laptop
+after a run. One-time setup, from any browser (phone is fine):
+
+1. In this repo, go to **Settings → Secrets and variables → Actions** and
+   add two repository secrets: `GARMIN_EMAIL` and `GARMIN_PASSWORD`.
+2. Merge this branch into your default branch — GitHub only fires
+   `schedule` triggers for workflows that live on the default branch.
+3. That's it. It'll sync automatically going forward. If you want a sync
+   right now, open the **Actions** tab → "Sync Garmin running data" →
+   **Run workflow** (works from the GitHub mobile app too).
+
+Adjust the cadence by editing the `cron` line in the workflow file — it's
+UTC, and the minimum practical interval is about every 15-30 minutes if you
+want it closer to real-time.
+
 ## Output (`data/`)
 
 - `activities.csv` — one row per run: date, distance, duration, pace,
