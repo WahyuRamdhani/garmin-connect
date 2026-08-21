@@ -83,14 +83,14 @@
       "ATP"
     ],
     "trainingPlanId": 1784472036,
-    "personalRecord": false,
     "gcj02": false,
+    "personalRecord": false,
     "runPowerWindDataEnabled": null,
-    "autoCalcCalories": false,
-    "favorite": false,
-    "trimmed": false,
     "manualActivity": false,
-    "elevationCorrected": true
+    "trimmed": false,
+    "elevationCorrected": true,
+    "favorite": false,
+    "autoCalcCalories": false
   },
   "summaryDTO": {
     "startTimeLocal": "2026-08-20T16:07:39.0",
