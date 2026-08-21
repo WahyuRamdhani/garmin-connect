@@ -2,7 +2,6 @@
 from __future__ import annotations
 
 import os
-from datetime import date
 from typing import Any
 
 from garminconnect import (
@@ -46,13 +45,10 @@ def login() -> Garmin:
     return garmin
 
 
-def fetch_running_activities(
-    garmin: Garmin, start_date: date, end_date: date
-) -> list[dict[str, Any]]:
-    """Fetch all running activities in [start_date, end_date]."""
-    return garmin.get_activities_by_date(
-        start_date.isoformat(), end_date.isoformat(), activitytype="running"
-    )
+def fetch_latest_running_activity(garmin: Garmin) -> dict[str, Any] | None:
+    """Fetch only the single most recent running activity, or None if there are none."""
+    activities = garmin.get_activities(0, 1, activitytype="running")
+    return activities[0] if activities else None
 
 
 def fetch_splits(garmin: Garmin, activity_id: int) -> list[dict[str, Any]]:

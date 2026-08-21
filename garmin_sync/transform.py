@@ -1,9 +1,7 @@
-"""Turn raw Garmin Connect activity payloads into flat rows and trend summaries."""
+"""Turn a raw Garmin Connect activity payload into a flat row."""
 from __future__ import annotations
 
-from collections import defaultdict
-from datetime import datetime
-from typing import Any, Callable, Iterable
+from typing import Any, Iterable
 
 
 def _meters_to_km(value: float | None) -> float | None:
@@ -46,12 +44,6 @@ def activity_to_row(activity: dict[str, Any]) -> dict[str, Any]:
         "avg_cadence_spm": activity.get("averageRunningCadenceInStepsPerMinute"),
         "max_cadence_spm": activity.get("maxRunningCadenceInStepsPerMinute"),
     }
-
-
-def activities_to_rows(activities: Iterable[dict[str, Any]]) -> list[dict[str, Any]]:
-    rows = [activity_to_row(a) for a in activities]
-    rows.sort(key=lambda r: r["date"] or "")
-    return rows
 
 
 # Garmin's per-activity detail endpoint is undocumented and inconsistent about
@@ -121,62 +113,3 @@ def split_to_row(activity_id: int, index: int, lap: dict[str, Any]) -> dict[str,
 
 def splits_to_rows(activity_id: int, laps: Iterable[dict[str, Any]]) -> list[dict[str, Any]]:
     return [split_to_row(activity_id, i + 1, lap) for i, lap in enumerate(laps)]
-
-
-def _week_key(iso_date: str) -> str:
-    d = datetime.strptime(iso_date, "%Y-%m-%d").date()
-    year, week, _ = d.isocalendar()
-    return f"{year}-W{week:02d}"
-
-
-def _month_key(iso_date: str) -> str:
-    return iso_date[:7]
-
-
-def _aggregate(rows: list[dict[str, Any]], key_fn: Callable[[str], str]) -> list[dict[str, Any]]:
-    buckets: dict[str, list[dict[str, Any]]] = defaultdict(list)
-    for row in rows:
-        if not row["date"]:
-            continue
-        buckets[key_fn(row["date"])].append(row)
-
-    result = []
-    for key in sorted(buckets):
-        group = buckets[key]
-        total_km = sum(r["distance_km"] or 0 for r in group)
-        total_min = sum(r["duration_min"] or 0 for r in group)
-        result.append(
-            {
-                "period": key,
-                "runs": len(group),
-                "distance_km": round(total_km, 2),
-                "duration_min": round(total_min, 1),
-                "avg_pace_min_per_km": round(total_min / total_km, 2) if total_km else None,
-            }
-        )
-    return result
-
-
-def weekly_trends(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    return _aggregate(rows, _week_key)
-
-
-def monthly_trends(rows: list[dict[str, Any]]) -> list[dict[str, Any]]:
-    return _aggregate(rows, _month_key)
-
-
-def personal_bests(rows: list[dict[str, Any]]) -> dict[str, Any]:
-    timed = [r for r in rows if r["distance_km"] and r["avg_pace_min_per_km"]]
-    if not timed:
-        return {}
-
-    fastest = min(timed, key=lambda r: r["avg_pace_min_per_km"])
-    longest = max(rows, key=lambda r: r["distance_km"] or 0)
-    weekly = weekly_trends(rows)
-    best_week = max(weekly, key=lambda w: w["distance_km"]) if weekly else None
-
-    return {
-        "fastest_pace": fastest,
-        "longest_run": longest,
-        "best_week": best_week,
-    }
