@@ -1,0 +1,106 @@
+{
+  "weekly": [
+    {
+      "period": "2026-W30",
+      "runs": 5,
+      "distance_km": 20.5,
+      "duration_min": 217.4,
+      "avg_pace_min_per_km": 10.6
+    },
+    {
+      "period": "2026-W31",
+      "runs": 2,
+      "distance_km": 11.02,
+      "duration_min": 125.5,
+      "avg_pace_min_per_km": 11.39
+    },
+    {
+      "period": "2026-W32",
+      "runs": 3,
+      "distance_km": 17.36,
+      "duration_min": 155.4,
+      "avg_pace_min_per_km": 8.95
+    },
+    {
+      "period": "2026-W33",
+      "runs": 3,
+      "distance_km": 11.32,
+      "duration_min": 126.5,
+      "avg_pace_min_per_km": 11.18
+    },
+    {
+      "period": "2026-W34",
+      "runs": 2,
+      "distance_km": 7.96,
+      "duration_min": 81.1,
+      "avg_pace_min_per_km": 10.18
+    }
+  ],
+  "monthly": [
+    {
+      "period": "2026-07",
+      "runs": 6,
+      "distance_km": 25.52,
+      "duration_min": 274.5,
+      "avg_pace_min_per_km": 10.76
+    },
+    {
+      "period": "2026-08",
+      "runs": 9,
+      "distance_km": 42.65,
+      "duration_min": 431.3,
+      "avg_pace_min_per_km": 10.11
+    }
+  ],
+  "personal_bests": {
+    "fastest_pace": {
+      "activity_id": 23905121346,
+      "date": "2026-08-09",
+      "start_time": "2026-08-09 05:41:40",
+      "name": "UI Green Marathon",
+      "distance_km": 10.199,
+      "duration_min": 84.47,
+      "moving_duration_min": 84.42,
+      "avg_pace_min_per_km": 8.28,
+      "elevation_gain_m": 120.42868041992188,
+      "elevation_loss_m": 118.16551208496094,
+      "avg_hr": 166.0,
+      "max_hr": 189.0,
+      "calories": 749.0,
+      "aerobic_training_effect": null,
+      "anaerobic_training_effect": null,
+      "training_effect_label": null,
+      "vo2max": 42.0,
+      "avg_cadence_spm": 145.21875,
+      "max_cadence_spm": 244.0
+    },
+    "longest_run": {
+      "activity_id": 23905121346,
+      "date": "2026-08-09",
+      "start_time": "2026-08-09 05:41:40",
+      "name": "UI Green Marathon",
+      "distance_km": 10.199,
+      "duration_min": 84.47,
+      "moving_duration_min": 84.42,
+      "avg_pace_min_per_km": 8.28,
+      "elevation_gain_m": 120.42868041992188,
+      "elevation_loss_m": 118.16551208496094,
+      "avg_hr": 166.0,
+      "max_hr": 189.0,
+      "calories": 749.0,
+      "aerobic_training_effect": null,
+      "anaerobic_training_effect": null,
+      "training_effect_label": null,
+      "vo2max": 42.0,
+      "avg_cadence_spm": 145.21875,
+      "max_cadence_spm": 244.0
+    },
+    "best_week": {
+      "period": "2026-W30",
+      "runs": 5,
+      "distance_km": 20.5,
+      "duration_min": 217.4,
+      "avg_pace_min_per_km": 10.6
+    }
+  }
+}
