@@ -53,7 +53,7 @@ DETAIL = {
         "moderateIntensityMinutes": 32,
         "vigorousIntensityMinutes": 7,
     },
-    "avgStrideLength": 0.63,
+    "avgStrideLength": 63,  # centimeters, per Garmin's API
     "waterEstimated": 239,
 }
 

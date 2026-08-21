@@ -50,7 +50,6 @@ def activity_to_row(activity: dict[str, Any]) -> dict[str, Any]:
 # whether a field sits at the top level or nested under summaryDTO, so each
 # metric lists candidate key names and we take the first one present.
 _DETAIL_FIELD_CANDIDATES = {
-    "avg_stride_length_m": ("avgStrideLength", "strideLength"),
     "moderate_intensity_min": ("moderateIntensityMinutes",),
     "vigorous_intensity_min": ("vigorousIntensityMinutes",),
     "sweat_loss_ml": ("waterEstimated", "sweatLossInMilliliters", "sweatLoss"),
@@ -58,6 +57,7 @@ _DETAIL_FIELD_CANDIDATES = {
     "resting_calories": ("bmrCalories", "restingCalories"),
 }
 _MAX_SPEED_KEYS = ("maxSpeed",)
+_STRIDE_LENGTH_KEYS = ("avgStrideLength", "strideLength")  # Garmin returns this in centimeters
 
 
 def _first_present(detail: dict[str, Any], keys: tuple[str, ...]) -> Any:
@@ -82,6 +82,9 @@ def extract_detail_fields(detail: dict[str, Any]) -> dict[str, Any]:
 
     max_speed = _first_present(detail, _MAX_SPEED_KEYS)
     fields["best_pace_min_per_km"] = round(1000 / (max_speed * 60), 2) if max_speed else None
+
+    stride_length_cm = _first_present(detail, _STRIDE_LENGTH_KEYS)
+    fields["avg_stride_length_m"] = round(stride_length_cm / 100, 3) if stride_length_cm else None
 
     moderate = fields["moderate_intensity_min"]
     vigorous = fields["vigorous_intensity_min"]
