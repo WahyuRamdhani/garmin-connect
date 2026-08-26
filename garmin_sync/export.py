@@ -63,6 +63,8 @@ def write_run_summary_md(
     splits: list[dict[str, Any]],
     hr_zones: list[dict[str, Any]] | None = None,
     timeseries: list[dict[str, Any]] | None = None,
+    coach_schedule: list[dict[str, Any]] | None = None,
+    schedule_reference_date: str | None = None,
 ) -> None:
     """Write a single, self-contained Markdown report for the latest run -
     summary stats, splits, HR zones, and the full chart-data samples - so
@@ -117,6 +119,33 @@ def write_run_summary_md(
                     "% of run": f"{z['percent']}%",
                 }
                 for z in hr_zones
+            ],
+        )
+        lines.append("")
+
+    if coach_schedule:
+        lines.append("## Garmin Coach schedule")
+        if schedule_reference_date:
+            lines.append(f"Week containing: {schedule_reference_date}")
+        plan_names = sorted(
+            {str(r["plan_name"]) for r in coach_schedule if r.get("plan_name")}
+        )
+        if plan_names:
+            lines.append(f"Plan: {', '.join(plan_names)}")
+        lines.append("")
+        _write_table(
+            lines,
+            ["Date", "Workout", "Type", "Est. duration (min)", "Est. distance (km)", "Status"],
+            [
+                {
+                    "Date": item.get("date") or "",
+                    "Workout": item.get("workout_name") or "",
+                    "Type": item.get("workout_type") or "",
+                    "Est. duration (min)": item.get("estimated_duration_min") or "",
+                    "Est. distance (km)": item.get("estimated_distance_km") or "",
+                    "Status": "Completed" if item.get("completed") else "Scheduled",
+                }
+                for item in coach_schedule
             ],
         )
         lines.append("")

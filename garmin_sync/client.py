@@ -90,3 +90,22 @@ def fetch_hr_zones(garmin: Garmin, activity_id: int) -> list[dict[str, Any]]:
     except (GarminConnectConnectionError, GarminConnectTooManyRequestsError):
         return []
     return data if isinstance(data, list) else []
+
+
+def fetch_training_plan_schedule(garmin: Garmin, calendar_date: str) -> dict[str, Any]:
+    """Fetch the Garmin Coach week containing ``calendar_date``."""
+    query = {
+        "query": (
+            f'query{{trainingPlanScalar(calendarDate:"{calendar_date}", '
+            'lang:"en-US", firstDayOfWeek:"monday")}'
+        )
+    }
+    try:
+        response = garmin.query_garmin_graphql(query)
+    except (GarminConnectConnectionError, GarminConnectTooManyRequestsError):
+        return {}
+    if not isinstance(response, dict):
+        return {}
+    data = response.get("data") or {}
+    plan = data.get("trainingPlanScalar") or {}
+    return plan if isinstance(plan, dict) else {}

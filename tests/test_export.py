@@ -90,3 +90,42 @@ def test_write_run_summary_md_is_single_self_contained_file(tmp_path):
     text = path.read_text()
     for heading in ("## Summary", "## Splits", "## Time in Heart Rate Zones", "## Timeseries"):
         assert heading in text
+
+
+COACH_SCHEDULE = [
+    {
+        "date": "2026-08-26",
+        "plan_name": "10K Plan with Coach Greg",
+        "workout_name": "Stride Repeats",
+        "workout_type": "ANAEROBIC_SPEED",
+        "estimated_duration_min": 41.0,
+        "estimated_distance_km": 4.0,
+        "completed": True,
+    },
+    {
+        "date": "2026-08-29",
+        "plan_name": "10K Plan with Coach Greg",
+        "workout_name": "Easy Run",
+        "workout_type": None,
+        "estimated_duration_min": 40.0,
+        "estimated_distance_km": None,
+        "completed": False,
+    },
+]
+
+
+def test_write_run_summary_md_includes_coach_schedule(tmp_path):
+    path = tmp_path / "summary.md"
+    write_run_summary_md(
+        path,
+        ROW,
+        SPLITS,
+        coach_schedule=COACH_SCHEDULE,
+        schedule_reference_date="2026-08-26",
+    )
+    text = path.read_text()
+    assert "## Garmin Coach schedule" in text
+    assert "Week containing: 2026-08-26" in text
+    assert "10K Plan with Coach Greg" in text
+    assert "| 2026-08-26 | Stride Repeats | ANAEROBIC_SPEED | 41.0 | 4.0 | Completed |" in text
+    assert "| 2026-08-29 | Easy Run |  | 40.0 |  | Scheduled |" in text
