@@ -20,7 +20,12 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ~/.garminconnect
-          key: garmin-tokenstore
+          # Cache entries are immutable. Use a unique key so refreshed tokens
+          # are saved after every run, then restore the newest prior entry.
+          # v2 also avoids restoring the now-expired legacy fixed-key cache.
+          key: garmin-tokenstore-v2-${{ github.run_id }}
+          restore-keys: |
+            garmin-tokenstore-v2-
 
       - name: Install dependencies
         run: pip install -r requirements.txt
