@@ -163,3 +163,32 @@ def hr_zones_to_rows(zones: Iterable[dict[str, Any]]) -> list[dict[str, Any]]:
             }
         )
     return rows
+
+
+def training_plan_to_rows(plan_data: dict[str, Any]) -> list[dict[str, Any]]:
+    """Flatten Garmin Coach's weekly training-plan GraphQL payload."""
+    rows: list[dict[str, Any]] = []
+    plans = plan_data.get("trainingPlanWorkoutScheduleDTOS") or []
+    for plan in plans:
+        plan_name = plan.get("planName")
+        for workout in plan.get("workoutScheduleSummaries") or []:
+            duration_s = workout.get("estimatedDurationInSecs")
+            distance_m = workout.get("estimatedDistanceInMeters")
+            activity_id = workout.get("associatedActivityId")
+            rows.append(
+                {
+                    "date": workout.get("scheduleDate"),
+                    "plan_name": plan_name or workout.get("tpPlanName"),
+                    "workout_name": workout.get("workoutName"),
+                    "sport": workout.get("workoutType"),
+                    "workout_type": workout.get("workoutPhrase"),
+                    "estimated_duration_min": _seconds_to_min(duration_s),
+                    "estimated_distance_km": _meters_to_km(distance_m),
+                    "completed": activity_id is not None,
+                    "activity_id": activity_id,
+                    "workout_uuid": workout.get("workoutUuid"),
+                    "is_rest_day": bool(workout.get("isRestDay")),
+                    "is_race_day": bool(workout.get("race")),
+                }
+            )
+    return sorted(rows, key=lambda row: (row.get("date") or "", row.get("workout_name") or ""))

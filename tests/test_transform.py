@@ -4,6 +4,7 @@ from garmin_sync.transform import (
     hr_zones_to_rows,
     merge_detail,
     splits_to_rows,
+    training_plan_to_rows,
     timeseries_to_rows,
 )
 
@@ -128,3 +129,70 @@ def test_hr_zones_to_rows_computes_minutes_and_percent():
 
 def test_hr_zones_to_rows_empty_returns_empty():
     assert hr_zones_to_rows([]) == []
+
+
+TRAINING_PLAN_RAW = {
+    "trainingPlanWorkoutScheduleDTOS": [
+        {
+            "planName": "10K Plan with Coach Greg",
+            "workoutScheduleSummaries": [
+                {
+                    "workoutUuid": "stride-uuid",
+                    "workoutName": "Stride Repeats",
+                    "workoutType": "running",
+                    "workoutPhrase": "ANAEROBIC_SPEED",
+                    "scheduleDate": "2026-08-26",
+                    "estimatedDurationInSecs": 2460,
+                    "estimatedDistanceInMeters": 4000,
+                    "associatedActivityId": 24117228760,
+                },
+                {
+                    "workoutUuid": "easy-uuid",
+                    "workoutName": "Easy Run",
+                    "workoutType": "running",
+                    "scheduleDate": "2026-08-29",
+                    "estimatedDurationInSecs": 2400,
+                    "associatedActivityId": None,
+                },
+            ],
+        }
+    ]
+}
+
+
+def test_training_plan_to_rows_flattens_and_sorts_schedule():
+    rows = training_plan_to_rows(TRAINING_PLAN_RAW)
+    assert rows == [
+        {
+            "date": "2026-08-26",
+            "plan_name": "10K Plan with Coach Greg",
+            "workout_name": "Stride Repeats",
+            "sport": "running",
+            "workout_type": "ANAEROBIC_SPEED",
+            "estimated_duration_min": 41.0,
+            "estimated_distance_km": 4.0,
+            "completed": True,
+            "activity_id": 24117228760,
+            "workout_uuid": "stride-uuid",
+            "is_rest_day": False,
+            "is_race_day": False,
+        },
+        {
+            "date": "2026-08-29",
+            "plan_name": "10K Plan with Coach Greg",
+            "workout_name": "Easy Run",
+            "sport": "running",
+            "workout_type": None,
+            "estimated_duration_min": 40.0,
+            "estimated_distance_km": None,
+            "completed": False,
+            "activity_id": None,
+            "workout_uuid": "easy-uuid",
+            "is_rest_day": False,
+            "is_race_day": False,
+        },
+    ]
+
+
+def test_training_plan_to_rows_handles_empty_payload():
+    assert training_plan_to_rows({}) == []

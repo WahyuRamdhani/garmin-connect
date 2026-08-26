@@ -11,9 +11,10 @@ history or personal bests are tracked; if you want those back later, say so.
 > Note: there's no API for writing directly into a Claude Project's knowledge
 > base, so this tool exports clean files instead. **Upload just
 > `data/summary.md`** — it's a single self-contained report with everything:
-> summary stats, splits, HR zones, and the full chart-data samples. The other
-> files (`activity.csv`, `splits.csv`, `timeseries.csv`, `hr_zones.csv`, raw
-> JSON) hold the same data broken out separately, for anyone who wants the
+> summary stats, splits, HR zones, the current Garmin Coach week, and the full
+> chart-data samples. The other files (`activity.csv`, `splits.csv`,
+> `timeseries.csv`, `hr_zones.csv`, `coach_schedule.csv`, raw JSON) hold the
+> same data broken out separately, for anyone who wants the
 > pieces individually — you don't need them for the Claude Project upload.
 
 ## Setup
@@ -44,9 +45,8 @@ python sync_garmin.py --skip-detail   # faster: skip best pace/stride/intensity 
 python sync_garmin.py --skip-charts   # faster: skip second-by-second chart data + HR zones
 ```
 
-Five API calls total (activity lookup, splits, extended detail, chart
-samples, HR zones) — light enough to run as often as you like, since it's
-just one run's worth of data each time.
+Six API calls total (activity lookup, splits, extended detail, chart samples,
+HR zones, Garmin Coach schedule) — light enough to run as often as you like.
 
 ## Manual sync from your phone
 
@@ -60,20 +60,24 @@ laptop needed. One-time setup, from any browser (phone is fine):
    mobile app or in a browser) → "Sync Garmin running data" →
    **Run workflow**.
 
-There's no schedule — it only runs when you trigger it.
+The workflow itself has no timer — it only runs when you trigger it. Each run
+automatically fetches the Coach plan week containing the current date in WIB.
 
 ## Output (`data/`)
 
 - **`summary.md`** — the one file to upload: date/name, summary stats
   (distance, duration, avg/best pace, elevation, HR, calories, training
   effect, VO2max, cadence, stride length, intensity minutes, sweat loss),
-  the splits table, the Time-in-HR-Zones table, and the full Charts-tab
-  timeseries table (timestamp, distance, HR, pace/speed, elevation, cadence
-  — whatever Garmin includes for that run).
+  the splits table, the Time-in-HR-Zones table, the current Garmin Coach
+  schedule, and the full Charts-tab timeseries table (timestamp, distance,
+  HR, pace/speed, elevation, cadence — whatever Garmin includes for that run).
 - `activity.csv` — the same summary stats as one CSV row, if you want it
   separately.
 - `splits.csv` / `hr_zones.csv` / `timeseries.csv` — the same three tables
   from `summary.md`, as standalone CSVs.
+- `coach_schedule.csv` — the revealed workouts for the Garmin Coach week,
+  including dates, estimated duration/distance, and completion state.
+- `coach_schedule_raw.json` — Garmin's raw training-plan GraphQL response.
 - `activity_raw.json` / `activity_detail_raw.json` — the raw Garmin Connect
   payloads, for anything not already pulled into the CSV/Markdown.
 

@@ -18,7 +18,10 @@ from __future__ import annotations
 
 import argparse
 import shutil
+from datetime import datetime
 from pathlib import Path
+from typing import Any
+from zoneinfo import ZoneInfo
 
 from dotenv import load_dotenv
 
@@ -28,6 +31,7 @@ from garmin_sync.client import (
     fetch_hr_zones,
     fetch_latest_running_activity,
     fetch_splits,
+    fetch_training_plan_schedule,
     login,
 )
 from garmin_sync.export import write_csv, write_json, write_run_summary_md
@@ -36,8 +40,20 @@ from garmin_sync.transform import (
     extract_detail_fields,
     hr_zones_to_rows,
     splits_to_rows,
+    training_plan_to_rows,
     timeseries_to_rows,
 )
+
+
+def sync_training_plan(
+    garmin: Any, out_dir: Path, reference_date: str
+) -> list[dict[str, Any]]:
+    """Fetch and export the Garmin Coach week containing ``reference_date``."""
+    plan_data = fetch_training_plan_schedule(garmin, reference_date)
+    rows = training_plan_to_rows(plan_data)
+    write_json(out_dir / "coach_schedule_raw.json", plan_data)
+    write_csv(out_dir / "coach_schedule.csv", rows)
+    return rows
 
 
 def parse_args() -> argparse.Namespace:
@@ -111,14 +127,27 @@ def main() -> None:
         hr_zone_rows = hr_zones_to_rows(hr_zones)
         write_csv(out_dir / "hr_zones.csv", hr_zone_rows)
 
+    schedule_reference_date = datetime.now(ZoneInfo("Asia/Jakarta")).date().isoformat()
+    print(f"Fetching Garmin Coach schedule for the week containing {schedule_reference_date}...")
+    coach_schedule_rows = sync_training_plan(garmin, out_dir, schedule_reference_date)
+
     write_csv(out_dir / "activity.csv", [row])
-    write_run_summary_md(out_dir / "summary.md", row, split_rows, hr_zone_rows, timeseries_rows)
+    write_run_summary_md(
+        out_dir / "summary.md",
+        row,
+        split_rows,
+        hr_zone_rows,
+        timeseries_rows,
+        coach_schedule_rows,
+        schedule_reference_date,
+    )
 
     print(f"\nDone. Latest run ({row['date']} - {row['name']}) exported to {out_dir}/")
     print("  - summary.md  <- upload just this one file to your Claude Project")
     print("  - activity.csv, activity_raw.json, activity_detail_raw.json")
     print(f"  - splits.csv ({len(split_rows)} laps)")
     print(f"  - timeseries.csv ({len(timeseries_rows)} samples), hr_zones.csv")
+    print(f"  - coach_schedule.csv ({len(coach_schedule_rows)} workouts), coach_schedule_raw.json")
 
 
 if __name__ == "__main__":
