@@ -1,8 +1,8 @@
 date,plan_name,workout_name,sport,workout_type,estimated_duration_min,estimated_distance_km,completed,activity_id,workout_uuid,is_rest_day,is_race_day
-2026-08-18,,Stride Repeats,running,,,,True,24020794052,,False,False
 2026-08-20,,Progression Run,running,,,,True,24046413854,,False,False
 2026-08-23,,Easy Run,running,,,,True,24078731969,,False,False
 2026-08-26,,Stride Repeats,running,,,,True,24117228760,,False,False
-2026-08-28,,Progression Run,running,,45.0,,False,,,False,False
+2026-08-28,,Progression Run,running,,,,True,24142678779,,False,False
 2026-08-30,,Progression Run,running,,40.0,,False,,,False,False
 2026-09-01,,Easy Run,running,,50.0,,False,,,False,False
+2026-09-03,,Stride Repeats,running,,,,False,,,False,False
