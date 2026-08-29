@@ -186,6 +186,7 @@ def training_plan_to_rows(plan_data: dict[str, Any]) -> list[dict[str, Any]]:
                     "estimated_distance_km": _meters_to_km(distance_m),
                     "completed": activity_id is not None,
                     "activity_id": activity_id,
+                    "workout_id": workout.get("workoutId"),
                     "workout_uuid": workout.get("workoutUuid"),
                     "is_rest_day": bool(workout.get("isRestDay")),
                     "is_race_day": bool(workout.get("race")),
