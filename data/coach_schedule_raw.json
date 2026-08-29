@@ -43,8 +43,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "race": false,
-          "protected": false
+          "protected": false,
+          "race": false
         },
         {
           "scheduledWorkoutId": 1752465570,
@@ -71,8 +71,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "race": false,
-          "protected": false
+          "protected": false,
+          "race": false
         },
         {
           "scheduledWorkoutId": 1752465571,
@@ -99,8 +99,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "race": false,
-          "protected": false
+          "protected": false,
+          "race": false
         },
         {
           "scheduledWorkoutId": 1752775383,
@@ -127,8 +127,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "race": false,
-          "protected": false
+          "protected": false,
+          "race": false
         },
         {
           "scheduledWorkoutId": 1756988323,
@@ -155,8 +155,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "race": false,
-          "protected": false
+          "protected": false,
+          "race": false
         },
         {
           "scheduledWorkoutId": 1758527081,
@@ -183,8 +183,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "race": false,
-          "protected": false
+          "protected": false,
+          "race": false
         }
       ]
     }
