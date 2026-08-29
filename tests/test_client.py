@@ -1,4 +1,8 @@
-from garmin_sync.client import fetch_scheduled_workout_detail, fetch_training_plan_schedule
+from garmin_sync.client import (
+    fetch_scheduled_workout_detail,
+    fetch_training_plan_detail,
+    fetch_training_plan_schedule,
+)
 
 
 class FakeGarmin:
@@ -20,6 +24,9 @@ class FakeGarmin:
     def get_workout_by_id(self, workout_id):
         return {"workoutId": int(workout_id), "workoutName": "Progression Run"}
 
+    def get_training_plan_by_id(self, plan_id):
+        return {"trainingPlanId": int(plan_id), "workoutSegments": []}
+
 
 def test_fetch_training_plan_schedule_queries_week_for_reference_date():
     garmin = FakeGarmin()
@@ -39,3 +46,8 @@ def test_fetch_training_plan_schedule_queries_week_for_reference_date():
 def test_fetch_scheduled_workout_detail_uses_workout_id():
     detail = fetch_scheduled_workout_detail(FakeGarmin(), 1672866335)
     assert detail == {"workoutId": 1672866335, "workoutName": "Progression Run"}
+
+
+def test_fetch_training_plan_detail_uses_plan_id():
+    detail = fetch_training_plan_detail(FakeGarmin(), 1784472036)
+    assert detail == {"trainingPlanId": 1784472036, "workoutSegments": []}

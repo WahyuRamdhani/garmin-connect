@@ -10,6 +10,7 @@ class FakeGarmin:
                 "trainingPlanScalar": {
                     "trainingPlanWorkoutScheduleDTOS": [
                         {
+                            "trainingPlanId": 1784472036,
                             "planName": "10K Plan with Coach Greg",
                             "workoutScheduleSummaries": [
                                 {
@@ -28,6 +29,13 @@ class FakeGarmin:
 
     def get_workout_by_id(self, workout_id):
         return {"workoutId": int(workout_id), "workoutName": "Progression Run", "workoutSegments": []}
+
+    def get_training_plan_by_id(self, plan_id):
+        return {
+            "trainingPlanId": int(plan_id),
+            "workoutName": "Progression Run",
+            "workoutSegments": [{"segmentOrder": 1, "workoutSteps": []}],
+        }
 
 
 def test_sync_training_plan_writes_raw_json_and_csv(tmp_path):

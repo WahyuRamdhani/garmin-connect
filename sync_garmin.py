@@ -17,6 +17,7 @@ from a clean output directory.
 from __future__ import annotations
 
 import argparse
+import json
 import shutil
 from datetime import datetime
 from pathlib import Path
@@ -31,6 +32,7 @@ from garmin_sync.client import (
     fetch_hr_zones,
     fetch_latest_running_activity,
     fetch_scheduled_workout_detail,
+    fetch_training_plan_detail,
     fetch_splits,
     fetch_training_plan_schedule,
     login,
@@ -67,17 +69,36 @@ def sync_training_plan_details(
     """Fetch step definitions for unrevealed workouts on/after the reference date."""
     raw_details: list[dict[str, Any]] = []
     summaries: list[dict[str, Any]] = []
-    for item in schedule_rows:
-        if item.get("completed") or (item.get("date") or "") < reference_date:
-            continue
-        workout_id = item.get("workout_id")
-        if workout_id is None:
-            continue
-        detail = fetch_scheduled_workout_detail(garmin, workout_id)
+    schedule_path = out_dir / "coach_schedule_raw.json"
+    schedule_payload = json.loads(schedule_path.read_text()) if schedule_path.exists() else {}
+    plan_ids = {
+        plan.get("trainingPlanId")
+        for plan in schedule_payload.get("trainingPlanWorkoutScheduleDTOS") or []
+        if plan.get("trainingPlanId") is not None
+    }
+    for plan_id in sorted(plan_ids):
+        detail = fetch_training_plan_detail(garmin, plan_id)
         if detail:
             raw_details.append(detail)
-            summaries.append(workout_detail_to_summary(detail))
+            summary = workout_detail_to_summary(detail)
+            if summary.get("segments"):
+                summaries.append(summary)
+
+    # Some non-adaptive plans expose individual workout definitions instead of
+    # embedding them in the plan detail; use those as a fallback.
+    if not raw_details:
+        for item in schedule_rows:
+            if item.get("completed") or (item.get("date") or "") < reference_date:
+                continue
+            workout_id = item.get("workout_id")
+            if workout_id is None:
+                continue
+            detail = fetch_scheduled_workout_detail(garmin, workout_id)
+            if detail:
+                raw_details.append(detail)
+                summaries.append(workout_detail_to_summary(detail))
     write_json(out_dir / "coach_workout_details.json", raw_details)
+    write_json(out_dir / "coach_training_plan_details.json", raw_details)
     return summaries
 
 
