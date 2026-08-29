@@ -30,6 +30,7 @@ from garmin_sync.client import (
     fetch_activity_timeseries,
     fetch_hr_zones,
     fetch_latest_running_activity,
+    fetch_scheduled_workout_detail,
     fetch_splits,
     fetch_training_plan_schedule,
     login,
@@ -42,6 +43,7 @@ from garmin_sync.transform import (
     splits_to_rows,
     training_plan_to_rows,
     timeseries_to_rows,
+    workout_detail_to_summary,
 )
 
 
@@ -54,6 +56,29 @@ def sync_training_plan(
     write_json(out_dir / "coach_schedule_raw.json", plan_data)
     write_csv(out_dir / "coach_schedule.csv", rows)
     return rows
+
+
+def sync_training_plan_details(
+    garmin: Any,
+    out_dir: Path,
+    schedule_rows: list[dict[str, Any]],
+    reference_date: str,
+) -> list[dict[str, Any]]:
+    """Fetch step definitions for unrevealed workouts on/after the reference date."""
+    raw_details: list[dict[str, Any]] = []
+    summaries: list[dict[str, Any]] = []
+    for item in schedule_rows:
+        if item.get("completed") or (item.get("date") or "") < reference_date:
+            continue
+        workout_id = item.get("workout_id")
+        if workout_id is None:
+            continue
+        detail = fetch_scheduled_workout_detail(garmin, workout_id)
+        if detail:
+            raw_details.append(detail)
+            summaries.append(workout_detail_to_summary(detail))
+    write_json(out_dir / "coach_workout_details.json", raw_details)
+    return summaries
 
 
 def parse_args() -> argparse.Namespace:
@@ -130,6 +155,9 @@ def main() -> None:
     schedule_reference_date = datetime.now(ZoneInfo("Asia/Jakarta")).date().isoformat()
     print(f"Fetching Garmin Coach schedule for the week containing {schedule_reference_date}...")
     coach_schedule_rows = sync_training_plan(garmin, out_dir, schedule_reference_date)
+    coach_workout_details = sync_training_plan_details(
+        garmin, out_dir, coach_schedule_rows, schedule_reference_date
+    )
 
     write_csv(out_dir / "activity.csv", [row])
     write_run_summary_md(
@@ -140,6 +168,7 @@ def main() -> None:
         timeseries_rows,
         coach_schedule_rows,
         schedule_reference_date,
+        coach_workout_details,
     )
 
     print(f"\nDone. Latest run ({row['date']} - {row['name']}) exported to {out_dir}/")
@@ -148,6 +177,7 @@ def main() -> None:
     print(f"  - splits.csv ({len(split_rows)} laps)")
     print(f"  - timeseries.csv ({len(timeseries_rows)} samples), hr_zones.csv")
     print(f"  - coach_schedule.csv ({len(coach_schedule_rows)} workouts), coach_schedule_raw.json")
+    print(f"  - coach_workout_details.json ({len(coach_workout_details)} workouts with steps)")
 
 
 if __name__ == "__main__":

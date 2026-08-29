@@ -192,3 +192,55 @@ def training_plan_to_rows(plan_data: dict[str, Any]) -> list[dict[str, Any]]:
                 }
             )
     return sorted(rows, key=lambda row: (row.get("date") or "", row.get("workout_name") or ""))
+
+
+def _workout_step_to_summary(step: dict[str, Any]) -> dict[str, Any]:
+    step_type = step.get("stepType") or {}
+    end_condition = step.get("endCondition") or {}
+    target_type = step.get("targetType") or {}
+    result: dict[str, Any] = {
+        "order": step.get("stepOrder"),
+        "type": step_type.get("stepTypeKey"),
+        "description": step.get("description"),
+        "end_condition": end_condition.get("conditionTypeKey"),
+        "end_condition_value": step.get("endConditionValue"),
+        "target_type": target_type.get("workoutTargetTypeKey"),
+        "target_value_low": step.get("targetValueOne"),
+        "target_value_high": step.get("targetValueTwo"),
+        "target_zone": step.get("zoneNumber"),
+    }
+    if step.get("type") == "RepeatGroupDTO":
+        result["repeat_count"] = step.get("numberOfIterations")
+        result["steps"] = [_workout_step_to_summary(s) for s in step.get("workoutSteps") or []]
+    return {k: v for k, v in result.items() if v is not None}
+
+
+def workout_detail_to_summary(detail: dict[str, Any]) -> dict[str, Any]:
+    """Extract readable segments and steps from a Garmin workout payload."""
+    if not detail:
+        return {}
+    summary: dict[str, Any] = {
+        "workout_id": detail.get("workoutId"),
+        "name": detail.get("workoutName"),
+        "sport": (detail.get("sportType") or {}).get("sportTypeKey"),
+        "estimated_duration_min": _seconds_to_min(
+            detail.get("estimatedDuration") or detail.get("estimatedDurationInSecs")
+        ),
+        "estimated_distance_km": _meters_to_km(
+            detail.get("estimatedDistance") or detail.get("estimatedDistanceInMeters")
+        ),
+        "description": detail.get("description"),
+    }
+    segments = []
+    for segment in detail.get("workoutSegments") or []:
+        segment_summary: dict[str, Any] = {
+            "order": segment.get("segmentOrder"),
+            "sport": (segment.get("sportType") or {}).get("sportTypeKey"),
+            "estimated_duration_min": _seconds_to_min(segment.get("estimatedDurationInSecs")),
+            "estimated_distance_km": _meters_to_km(segment.get("estimatedDistanceInMeters")),
+            "steps": [_workout_step_to_summary(s) for s in segment.get("workoutSteps") or []],
+        }
+        segments.append({k: v for k, v in segment_summary.items() if v is not None and v != []})
+    if segments:
+        summary["segments"] = segments
+    return {k: v for k, v in summary.items() if v is not None}

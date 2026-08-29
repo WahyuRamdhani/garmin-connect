@@ -45,8 +45,10 @@ python sync_garmin.py --skip-detail   # faster: skip best pace/stride/intensity 
 python sync_garmin.py --skip-charts   # faster: skip second-by-second chart data + HR zones
 ```
 
-Six API calls total (activity lookup, splits, extended detail, chart samples,
-HR zones, Garmin Coach schedule) — light enough to run as often as you like.
+The sync also fetches step-by-step definitions for unrevealed upcoming Coach
+workouts (warm-up, intervals, duration/distance conditions, HR/pace targets,
+and repeats), so the next workout can be analyzed without a screenshot.
+The number of API calls varies with the number of upcoming workouts.
 
 ## Manual sync from your phone
 
@@ -78,6 +80,8 @@ automatically fetches the Coach plan week containing the current date in WIB.
 - `coach_schedule.csv` — the revealed workouts for the Garmin Coach week,
   including dates, estimated duration/distance, and completion state.
 - `coach_schedule_raw.json` — Garmin's raw training-plan GraphQL response.
+- `coach_workout_details.json` — raw step-by-step definitions for upcoming
+  workouts; the readable version is included in `summary.md`.
 - `activity_raw.json` / `activity_detail_raw.json` — the raw Garmin Connect
   payloads, for anything not already pulled into the CSV/Markdown.
 

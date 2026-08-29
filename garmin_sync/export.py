@@ -57,6 +57,18 @@ def _write_table(lines: list[str], columns: list[str], rows: list[dict[str, Any]
         lines.append("| " + " | ".join(str(r.get(c, "")) for c in columns) + " |")
 
 
+def _append_step(lines: list[str], step: dict[str, Any], prefix: str = "") -> None:
+    parts = [str(step.get("type") or "step")]
+    if step.get("end_condition"):
+        parts.append(f"{step['end_condition']}={step.get('end_condition_value', '')}")
+    if step.get("target_type"):
+        target = step.get("target_zone") or step.get("target_value_low")
+        parts.append(f"target={step['target_type']}:{target}")
+    lines.append(f"{prefix}- {'; '.join(parts)}")
+    for nested in step.get("steps") or []:
+        _append_step(lines, nested, prefix + "  ")
+
+
 def write_run_summary_md(
     path: Path,
     row: dict[str, Any],
@@ -65,6 +77,7 @@ def write_run_summary_md(
     timeseries: list[dict[str, Any]] | None = None,
     coach_schedule: list[dict[str, Any]] | None = None,
     schedule_reference_date: str | None = None,
+    coach_workout_details: list[dict[str, Any]] | None = None,
 ) -> None:
     """Write a single, self-contained Markdown report for the latest run -
     summary stats, splits, HR zones, and the full chart-data samples - so
@@ -148,6 +161,18 @@ def write_run_summary_md(
                 for item in coach_schedule
             ],
         )
+        lines.append("")
+
+    if coach_workout_details:
+        lines.append("## Garmin Coach workout details")
+        for detail in coach_workout_details:
+            workout_id = detail.get("workout_id")
+            title = detail.get("name") or "Workout"
+            lines.append(f"### {title}{f' ({workout_id})' if workout_id else ''}")
+            for segment in detail.get("segments") or []:
+                lines.append(f"Segment {segment.get('order', '')}:")
+                for step in segment.get("steps") or []:
+                    _append_step(lines, step)
         lines.append("")
 
     if timeseries:

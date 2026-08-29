@@ -129,3 +129,19 @@ def test_write_run_summary_md_includes_coach_schedule(tmp_path):
     assert "10K Plan with Coach Greg" in text
     assert "| 2026-08-26 | Stride Repeats | ANAEROBIC_SPEED | 41.0 | 4.0 | Completed |" in text
     assert "| 2026-08-29 | Easy Run |  | 40.0 |  | Scheduled |" in text
+
+
+def test_write_run_summary_md_includes_coach_workout_steps(tmp_path):
+    path = tmp_path / "summary.md"
+    detail = {
+        "workout_id": 99,
+        "name": "Progression Run",
+        "segments": [
+            {"order": 1, "steps": [{"type": "warmup", "end_condition": "time", "end_condition_value": 300}]}
+        ],
+    }
+    write_run_summary_md(path, ROW, SPLITS, coach_workout_details=[detail])
+    text = path.read_text()
+    assert "## Garmin Coach workout details" in text
+    assert "Progression Run (99)" in text
+    assert "warmup; time=300" in text

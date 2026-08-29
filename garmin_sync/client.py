@@ -109,3 +109,12 @@ def fetch_training_plan_schedule(garmin: Garmin, calendar_date: str) -> dict[str
     data = response.get("data") or {}
     plan = data.get("trainingPlanScalar") or {}
     return plan if isinstance(plan, dict) else {}
+
+
+def fetch_scheduled_workout_detail(garmin: Garmin, workout_id: int) -> dict[str, Any]:
+    """Fetch the step-by-step definition for a scheduled workout."""
+    try:
+        detail = garmin.get_workout_by_id(str(workout_id))
+    except (GarminConnectConnectionError, GarminConnectTooManyRequestsError):
+        return {}
+    return detail if isinstance(detail, dict) else {}

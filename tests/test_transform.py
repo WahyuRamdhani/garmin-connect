@@ -5,6 +5,7 @@ from garmin_sync.transform import (
     merge_detail,
     splits_to_rows,
     training_plan_to_rows,
+    workout_detail_to_summary,
     timeseries_to_rows,
 )
 
@@ -196,3 +197,50 @@ def test_training_plan_to_rows_flattens_and_sorts_schedule():
 
 def test_training_plan_to_rows_handles_empty_payload():
     assert training_plan_to_rows({}) == []
+
+
+def test_workout_detail_to_summary_extracts_steps_and_targets():
+    detail = {
+        "workoutId": 99,
+        "workoutName": "Progression Run",
+        "sportType": {"sportTypeKey": "running"},
+        "estimatedDurationInSecs": 2400,
+        "workoutSegments": [
+            {
+                "segmentOrder": 1,
+                "sportType": {"sportTypeKey": "running"},
+                "workoutSteps": [
+                    {
+                        "stepOrder": 1,
+                        "stepType": {"stepTypeKey": "warmup"},
+                        "endCondition": {"conditionTypeKey": "time"},
+                        "endConditionValue": 300,
+                        "targetType": {"workoutTargetTypeKey": "heart.rate.zone"},
+                        "zoneNumber": 3,
+                    }
+                ],
+            }
+        ],
+    }
+    assert workout_detail_to_summary(detail) == {
+        "workout_id": 99,
+        "name": "Progression Run",
+        "sport": "running",
+        "estimated_duration_min": 40.0,
+        "segments": [
+            {
+                "order": 1,
+                "sport": "running",
+                "steps": [
+                    {
+                        "order": 1,
+                        "type": "warmup",
+                        "end_condition": "time",
+                        "end_condition_value": 300,
+                        "target_type": "heart.rate.zone",
+                        "target_zone": 3,
+                    }
+                ],
+            }
+        ],
+    }
