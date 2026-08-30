@@ -11,7 +11,7 @@
           "raceName": "Commuter Run 2026",
           "raceUrl": null
         },
-        "remainingAtpWorkoutsForWeek": 1,
+        "remainingAtpWorkoutsForWeek": 0,
         "workoutsPerWeek": 3,
         "registrationDate": "2026-07-19T14:40:36.248",
         "planCompleted": false,
@@ -43,8 +43,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "protected": false,
-          "race": false
+          "race": false,
+          "protected": false
         },
         {
           "scheduledWorkoutId": 1752465570,
@@ -71,8 +71,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "protected": false,
-          "race": false
+          "race": false,
+          "protected": false
         },
         {
           "scheduledWorkoutId": 1752465571,
@@ -99,8 +99,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "protected": false,
-          "race": false
+          "race": false,
+          "protected": false
         },
         {
           "scheduledWorkoutId": 1752775383,
@@ -116,10 +116,10 @@
           "fbtAdaptivePlanId": null,
           "tpPlanName": null,
           "ownerId": 148788505,
-          "associatedActivityId": null,
+          "associatedActivityId": 24165991895,
           "priority": null,
-          "associatedActivityDateTime": null,
-          "estimatedDurationInSecs": 2400,
+          "associatedActivityDateTime": "2026-08-30T06:26:13.0",
+          "estimatedDurationInSecs": null,
           "estimatedDistanceInMeters": null,
           "estimateType": null,
           "estimatedDistanceUnit": null,
@@ -127,8 +127,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "protected": false,
-          "race": false
+          "race": false,
+          "protected": false
         },
         {
           "scheduledWorkoutId": 1756988323,
@@ -155,8 +155,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "protected": false,
-          "race": false
+          "race": false,
+          "protected": false
         },
         {
           "scheduledWorkoutId": 1758527081,
@@ -183,8 +183,36 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "protected": false,
-          "race": false
+          "race": false,
+          "protected": false
+        },
+        {
+          "scheduledWorkoutId": 1760122968,
+          "workoutUuid": null,
+          "workoutId": 1680364449,
+          "workoutName": "Progression Run",
+          "workoutType": "running",
+          "scheduleDate": "2026-09-06",
+          "atpPlanId": 1784472036,
+          "atpPlanTypeId": null,
+          "itpPlanId": null,
+          "selfGuidedPlanId": null,
+          "fbtAdaptivePlanId": null,
+          "tpPlanName": null,
+          "ownerId": 148788505,
+          "associatedActivityId": null,
+          "priority": null,
+          "associatedActivityDateTime": null,
+          "estimatedDurationInSecs": 2700,
+          "estimatedDistanceInMeters": null,
+          "estimateType": null,
+          "estimatedDistanceUnit": null,
+          "trainingPlanId": null,
+          "tpType": null,
+          "workoutPhrase": null,
+          "isRestDay": null,
+          "race": false,
+          "protected": false
         }
       ]
     }
