@@ -51,6 +51,14 @@ def fetch_latest_running_activity(garmin: Garmin) -> dict[str, Any] | None:
     return activities[0] if activities else None
 
 
+def fetch_recent_running_activities(
+    garmin: Garmin, limit: int = 2
+) -> list[dict[str, Any]]:
+    """Fetch the most recent ``limit`` running activities, newest first."""
+    activities = garmin.get_activities(0, limit, activitytype="running")
+    return activities[:limit] if activities else []
+
+
 def fetch_splits(garmin: Garmin, activity_id: int) -> list[dict[str, Any]]:
     """Fetch per-lap splits for a single activity. Returns [] on failure."""
     try:

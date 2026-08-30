@@ -2,10 +2,13 @@ from garmin_sync.client import (
     fetch_scheduled_workout_detail,
     fetch_training_plan_detail,
     fetch_training_plan_schedule,
+    fetch_recent_running_activities,
 )
 
 
 class FakeGarmin:
+    def get_activities(self, start, limit, activitytype=None):
+        return [{"activityId": 2}, {"activityId": 1}]
     def __init__(self):
         self.query = None
 
@@ -51,3 +54,8 @@ def test_fetch_scheduled_workout_detail_uses_workout_id():
 def test_fetch_training_plan_detail_uses_plan_id():
     detail = fetch_training_plan_detail(FakeGarmin(), 1784472036)
     assert detail == {"trainingPlanId": 1784472036, "workoutSegments": []}
+
+
+def test_fetch_recent_running_activities_returns_two_newest():
+    activities = fetch_recent_running_activities(FakeGarmin(), limit=2)
+    assert [item["activityId"] for item in activities] == [2, 1]

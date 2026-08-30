@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Sync your latest Garmin Connect running activity into local export files.
+"""Sync the two most recent Garmin Connect running activities into local export files.
 
 Usage:
     python sync_garmin.py [--output-dir data] [--skip-splits] [--skip-detail] [--skip-charts]
 
 Reads GARMIN_EMAIL / GARMIN_PASSWORD from the environment (or a .env file).
-Fetches only the single most recent running activity and replaces
---output-dir with its full detail, including the app's Charts-tab data.
+Fetches the two most recent running activities and replaces --output-dir with
+full detail for both, including the app's Charts-tab data.
 summary.md is a single self-contained report (stats, splits, HR zones,
 full chart-data samples) meant to be the one file you upload into your
 Claude Project; activity.csv/splits.csv/timeseries.csv/hr_zones.csv and
@@ -30,7 +30,7 @@ from garmin_sync.client import (
     fetch_activity_detail,
     fetch_activity_timeseries,
     fetch_hr_zones,
-    fetch_latest_running_activity,
+    fetch_recent_running_activities,
     fetch_scheduled_workout_detail,
     fetch_training_plan_detail,
     fetch_splits,
@@ -137,9 +137,9 @@ def main() -> None:
     print("Logging in to Garmin Connect...")
     garmin = login()
 
-    print("Fetching latest running activity...")
-    activity = fetch_latest_running_activity(garmin)
-    if not activity:
+    print("Fetching the two most recent running activities...")
+    activities = fetch_recent_running_activities(garmin, limit=2)
+    if not activities:
         print("No running activities found on this account.")
         return
 
@@ -147,31 +147,48 @@ def main() -> None:
         shutil.rmtree(out_dir)
     out_dir.mkdir(parents=True)
 
-    row = activity_to_row(activity)
-    write_json(out_dir / "activity_raw.json", activity)
+    rows = []
+    reports = []
+    for activity in activities:
+        row = activity_to_row(activity)
+        activity_id = row["activity_id"]
+        prefix = f"activity_{activity_id}"
+        write_json(out_dir / f"{prefix}_raw.json", activity)
 
-    split_rows = []
-    if not args.skip_splits:
-        laps = fetch_splits(garmin, row["activity_id"])
-        split_rows = splits_to_rows(row["activity_id"], laps)
-    write_csv(out_dir / "splits.csv", split_rows)
+        split_rows = []
+        if not args.skip_splits:
+            split_rows = splits_to_rows(activity_id, fetch_splits(garmin, activity_id))
+        write_csv(out_dir / f"{prefix}_splits.csv", split_rows)
 
-    if not args.skip_detail:
-        detail = fetch_activity_detail(garmin, row["activity_id"])
-        if detail:
-            write_json(out_dir / "activity_detail_raw.json", detail)
-            row.update(extract_detail_fields(detail))
+        if not args.skip_detail:
+            detail = fetch_activity_detail(garmin, activity_id)
+            if detail:
+                write_json(out_dir / f"{prefix}_detail_raw.json", detail)
+                row.update(extract_detail_fields(detail))
 
-    timeseries_rows = []
-    hr_zone_rows = []
-    if not args.skip_charts:
-        timeseries = fetch_activity_timeseries(garmin, row["activity_id"])
-        timeseries_rows = timeseries_to_rows(timeseries)
-        write_csv(out_dir / "timeseries.csv", timeseries_rows)
+        timeseries_rows = []
+        hr_zone_rows = []
+        if not args.skip_charts:
+            timeseries_rows = timeseries_to_rows(fetch_activity_timeseries(garmin, activity_id))
+            hr_zone_rows = hr_zones_to_rows(fetch_hr_zones(garmin, activity_id))
+        write_csv(out_dir / f"{prefix}_timeseries.csv", timeseries_rows)
+        write_csv(out_dir / f"{prefix}_hr_zones.csv", hr_zone_rows)
+        write_run_summary_md(
+            out_dir / f"{prefix}_summary.md", row, split_rows, hr_zone_rows, timeseries_rows
+        )
+        rows.append(row)
+        reports.append((row, split_rows, hr_zone_rows, timeseries_rows))
 
-        hr_zones = fetch_hr_zones(garmin, row["activity_id"])
-        hr_zone_rows = hr_zones_to_rows(hr_zones)
-        write_csv(out_dir / "hr_zones.csv", hr_zone_rows)
+    # Keep the historical filenames as aliases for the newest activity while
+    # activity.csv now contains both runs and every run has its own files.
+    latest_row, latest_splits, latest_zones, latest_timeseries = reports[0]
+    write_json(out_dir / "activity_raw.json", activities[0])
+    latest_detail_path = out_dir / f"activity_{latest_row['activity_id']}_detail_raw.json"
+    if latest_detail_path.exists():
+        shutil.copyfile(latest_detail_path, out_dir / "activity_detail_raw.json")
+    write_csv(out_dir / "splits.csv", latest_splits)
+    write_csv(out_dir / "timeseries.csv", latest_timeseries)
+    write_csv(out_dir / "hr_zones.csv", latest_zones)
 
     schedule_reference_date = datetime.now(ZoneInfo("Asia/Jakarta")).date().isoformat()
     print(f"Fetching Garmin Coach schedule for the week containing {schedule_reference_date}...")
@@ -180,23 +197,23 @@ def main() -> None:
         garmin, out_dir, coach_schedule_rows, schedule_reference_date
     )
 
-    write_csv(out_dir / "activity.csv", [row])
+    write_csv(out_dir / "activity.csv", rows)
     write_run_summary_md(
         out_dir / "summary.md",
-        row,
-        split_rows,
-        hr_zone_rows,
-        timeseries_rows,
+        latest_row,
+        latest_splits,
+        latest_zones,
+        latest_timeseries,
         coach_schedule_rows,
         schedule_reference_date,
         coach_workout_details,
     )
 
-    print(f"\nDone. Latest run ({row['date']} - {row['name']}) exported to {out_dir}/")
+    print(f"\nDone. {len(rows)} latest runs exported to {out_dir}/")
     print("  - summary.md  <- upload just this one file to your Claude Project")
     print("  - activity.csv, activity_raw.json, activity_detail_raw.json")
-    print(f"  - splits.csv ({len(split_rows)} laps)")
-    print(f"  - timeseries.csv ({len(timeseries_rows)} samples), hr_zones.csv")
+    print(f"  - splits.csv ({len(latest_splits)} laps)")
+    print(f"  - timeseries.csv ({len(latest_timeseries)} samples), hr_zones.csv")
     print(f"  - coach_schedule.csv ({len(coach_schedule_rows)} workouts), coach_schedule_raw.json")
     print(f"  - coach_workout_details.json ({len(coach_workout_details)} workouts with steps)")
 
