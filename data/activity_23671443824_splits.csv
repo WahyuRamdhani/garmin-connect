@@ -1,0 +1,4 @@
+activity_id,split_index,distance_km,duration_min,pace_min_per_km,avg_hr,max_hr,elevation_gain_m
+23671443824,1,0.051,2.0,39.21,119.0,126.0,0.0
+23671443824,2,0.619,5.0,8.08,148.0,160.0,0.0
+23671443824,3,0.162,2.0,12.32,135.0,150.0,0.0
