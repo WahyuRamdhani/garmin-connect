@@ -85,14 +85,14 @@
     "trainingPlanId": 1784472036,
     "sessionResultType": "ORIGINAL",
     "hasMultiDayActivities": false,
-    "personalRecord": false,
     "gcj02": false,
+    "personalRecord": false,
     "runPowerWindDataEnabled": null,
-    "autoCalcCalories": false,
-    "favorite": false,
-    "trimmed": false,
+    "manualActivity": false,
     "elevationCorrected": true,
-    "manualActivity": false
+    "trimmed": false,
+    "autoCalcCalories": false,
+    "favorite": false
   },
   "summaryDTO": {
     "startTimeLocal": "2026-07-21T07:13:52.0",

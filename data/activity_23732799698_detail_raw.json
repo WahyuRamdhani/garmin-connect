@@ -81,13 +81,13 @@
     "hasHeatMap": false,
     "sessionResultType": "ORIGINAL",
     "hasMultiDayActivities": false,
-    "personalRecord": false,
     "manualActivity": false,
-    "autoCalcCalories": false,
-    "favorite": false,
+    "elevationCorrected": true,
     "runPowerWindDataEnabled": null,
     "trimmed": false,
-    "elevationCorrected": true,
+    "autoCalcCalories": false,
+    "favorite": false,
+    "personalRecord": false,
     "gcj02": false
   },
   "summaryDTO": {

@@ -215,13 +215,13 @@
   "endTimeGMT": "2026-08-06 23:32:31",
   "qualifyingDive": false,
   "activityUUID": "07f0cefc-f67b-482d-9cb5-792e33f77fd3",
-  "pr": false,
-  "favorite": false,
+  "atpActivity": true,
   "purposeful": false,
-  "parent": false,
-  "decoDive": false,
   "manualActivity": false,
-  "autoCalcCalories": false,
   "elevationCorrected": true,
-  "atpActivity": true
+  "favorite": false,
+  "autoCalcCalories": false,
+  "decoDive": false,
+  "pr": false,
+  "parent": false
 }
