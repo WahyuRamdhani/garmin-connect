@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
-"""Sync the two most recent Garmin Connect running activities into local export files.
+"""Sync the five most recent Garmin Connect running activities into local export files.
 
 Usage:
     python sync_garmin.py [--output-dir data] [--skip-splits] [--skip-detail] [--skip-charts]
 
 Reads GARMIN_EMAIL / GARMIN_PASSWORD from the environment (or a .env file).
-Fetches the two most recent running activities and replaces --output-dir with
-full detail for both, including the app's Charts-tab data.
+Fetches the five most recent running activities and replaces --output-dir with
+full detail for all of them, including the app's Charts-tab data.
 summary.md is a single self-contained report (stats, splits, HR zones,
 full chart-data samples) meant to be the one file you upload into your
 Claude Project; activity.csv/splits.csv/timeseries.csv/hr_zones.csv and
@@ -137,8 +137,8 @@ def main() -> None:
     print("Logging in to Garmin Connect...")
     garmin = login()
 
-    print("Fetching the two most recent running activities...")
-    activities = fetch_recent_running_activities(garmin, limit=2)
+    print("Fetching the five most recent running activities...")
+    activities = fetch_recent_running_activities(garmin, limit=5)
     if not activities:
         print("No running activities found on this account.")
         return
