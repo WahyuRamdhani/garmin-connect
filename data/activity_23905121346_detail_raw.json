@@ -91,12 +91,12 @@
     "hasMultiDayActivities": false,
     "personalRecord": true,
     "gcj02": false,
-    "runPowerWindDataEnabled": null,
-    "manualActivity": false,
-    "favorite": false,
+    "elevationCorrected": true,
     "trimmed": false,
+    "manualActivity": false,
     "autoCalcCalories": false,
-    "elevationCorrected": true
+    "favorite": false,
+    "runPowerWindDataEnabled": null
   },
   "summaryDTO": {
     "startTimeLocal": "2026-08-09T05:41:40.0",
