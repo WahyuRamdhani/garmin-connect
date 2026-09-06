@@ -8,8 +8,8 @@
     "typeKey": "running",
     "parentTypeId": 17,
     "isHidden": false,
-    "trimmable": true,
-    "restricted": false
+    "restricted": false,
+    "trimmable": true
   },
   "eventType": {
     "typeId": 9,
@@ -221,9 +221,9 @@
   "endTimeGMT": "2026-08-06 23:32:31",
   "qualifyingDive": false,
   "activityUUID": "07f0cefc-f67b-482d-9cb5-792e33f77fd3",
-  "pr": false,
   "favorite": false,
   "purposeful": false,
+  "pr": false,
   "parent": false,
   "decoDive": false,
   "manualActivity": false,
