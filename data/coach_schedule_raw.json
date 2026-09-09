@@ -11,41 +11,13 @@
           "raceName": "Commuter Run 2026",
           "raceUrl": null
         },
-        "remainingAtpWorkoutsForWeek": 0,
+        "remainingAtpWorkoutsForWeek": 2,
         "workoutsPerWeek": 3,
         "registrationDate": "2026-07-19T14:40:36.248",
         "planCompleted": false,
         "workoutPlanTypeId": 2
       },
       "workoutScheduleSummaries": [
-        {
-          "scheduledWorkoutId": 1752775383,
-          "workoutUuid": null,
-          "workoutId": 1672866335,
-          "workoutName": "Progression Run",
-          "workoutType": "running",
-          "scheduleDate": "2026-08-30",
-          "atpPlanId": 1784472036,
-          "atpPlanTypeId": null,
-          "itpPlanId": null,
-          "selfGuidedPlanId": null,
-          "fbtAdaptivePlanId": null,
-          "tpPlanName": null,
-          "ownerId": 148788505,
-          "associatedActivityId": 24165991895,
-          "priority": null,
-          "associatedActivityDateTime": "2026-08-30T06:26:13.0",
-          "estimatedDurationInSecs": null,
-          "estimatedDistanceInMeters": null,
-          "estimateType": null,
-          "estimatedDistanceUnit": null,
-          "trainingPlanId": null,
-          "tpType": null,
-          "workoutPhrase": null,
-          "isRestDay": null,
-          "protected": false,
-          "race": false
-        },
         {
           "scheduledWorkoutId": 1756988323,
           "workoutUuid": null,
@@ -71,8 +43,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "protected": false,
-          "race": false
+          "race": false,
+          "protected": false
         },
         {
           "scheduledWorkoutId": 1758527081,
@@ -99,8 +71,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "protected": false,
-          "race": false
+          "race": false,
+          "protected": false
         },
         {
           "scheduledWorkoutId": 1760122968,
@@ -127,8 +99,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "protected": false,
-          "race": false
+          "race": false,
+          "protected": false
         },
         {
           "scheduledWorkoutId": 1763547916,
@@ -136,7 +108,7 @@
           "workoutId": 1683792548,
           "workoutName": "Easy Run",
           "workoutType": "running",
-          "scheduleDate": "2026-09-08",
+          "scheduleDate": "2026-09-09",
           "atpPlanId": 1784472036,
           "atpPlanTypeId": null,
           "itpPlanId": null,
@@ -144,10 +116,10 @@
           "fbtAdaptivePlanId": null,
           "tpPlanName": null,
           "ownerId": 148788505,
-          "associatedActivityId": null,
+          "associatedActivityId": 24290954240,
           "priority": null,
-          "associatedActivityDateTime": null,
-          "estimatedDurationInSecs": 3600,
+          "associatedActivityDateTime": "2026-09-09T06:14:35.0",
+          "estimatedDurationInSecs": null,
           "estimatedDistanceInMeters": null,
           "estimateType": null,
           "estimatedDistanceUnit": null,
@@ -155,8 +127,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "protected": false,
-          "race": false
+          "race": false,
+          "protected": false
         },
         {
           "scheduledWorkoutId": 1764873632,
@@ -164,7 +136,7 @@
           "workoutId": 1685157600,
           "workoutName": "Easy Run",
           "workoutType": "running",
-          "scheduleDate": "2026-09-10",
+          "scheduleDate": "2026-09-11",
           "atpPlanId": 1784472036,
           "atpPlanTypeId": null,
           "itpPlanId": null,
@@ -183,8 +155,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "protected": false,
-          "race": false
+          "race": false,
+          "protected": false
         },
         {
           "scheduledWorkoutId": 1767738024,
@@ -211,8 +183,36 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "protected": false,
-          "race": false
+          "race": false,
+          "protected": false
+        },
+        {
+          "scheduledWorkoutId": 1771970245,
+          "workoutUuid": null,
+          "workoutId": 1692379067,
+          "workoutName": "Easy Run",
+          "workoutType": "running",
+          "scheduleDate": "2026-09-15",
+          "atpPlanId": 1784472036,
+          "atpPlanTypeId": null,
+          "itpPlanId": null,
+          "selfGuidedPlanId": null,
+          "fbtAdaptivePlanId": null,
+          "tpPlanName": null,
+          "ownerId": 148788505,
+          "associatedActivityId": null,
+          "priority": null,
+          "associatedActivityDateTime": null,
+          "estimatedDurationInSecs": 3000,
+          "estimatedDistanceInMeters": null,
+          "estimateType": null,
+          "estimatedDistanceUnit": null,
+          "trainingPlanId": null,
+          "tpType": null,
+          "workoutPhrase": null,
+          "isRestDay": null,
+          "race": false,
+          "protected": false
         }
       ]
     }

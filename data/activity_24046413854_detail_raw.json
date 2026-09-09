@@ -86,12 +86,12 @@
     "sessionResultType": "ORIGINAL",
     "hasMultiDayActivities": false,
     "personalRecord": false,
+    "manualActivity": false,
+    "trimmed": false,
+    "elevationCorrected": true,
     "autoCalcCalories": false,
     "favorite": false,
     "runPowerWindDataEnabled": null,
-    "elevationCorrected": true,
-    "manualActivity": false,
-    "trimmed": false,
     "gcj02": false
   },
   "summaryDTO": {
