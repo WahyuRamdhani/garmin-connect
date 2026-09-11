@@ -44,40 +44,6 @@ Date: 2026-09-12 (2026-09-12 05:49:31)
 | 4 | 164 | 0.0 | 0.0% |
 | 5 | 176 | 0.0 | 0.0% |
 
-## Garmin Coach schedule
-Week containing: 2026-09-12
-
-| Date | Workout | Type | Est. duration (min) | Est. distance (km) | Status |
-|---|---|---|---|---|---|
-| 2026-09-06 | Progression Run |  |  |  | Completed |
-| 2026-09-09 | Easy Run |  |  |  | Completed |
-| 2026-09-12 | Easy Run |  |  |  | Completed |
-| 2026-09-13 | Easy Run |  | 50.0 |  | Scheduled |
-| 2026-09-15 | Easy Run |  | 50.0 |  | Scheduled |
-| 2026-09-17 | Stride Repeats |  |  |  | Scheduled |
-
-## Garmin Coach workout details
-### Easy Run (1688113588)
-Segment 1:
-- warmup; time=300.0; target=no.target:None
-- interval; time=1800.0; target=no.target:None
-- interval; time=600.0; target=no.target:None
-- cooldown; time=300.0; target=no.target:None
-### Easy Run (1692379067)
-Segment 1:
-- warmup; time=300.0; target=no.target:None
-- interval; time=1800.0; target=no.target:None
-- interval; time=600.0; target=no.target:None
-- cooldown; time=300.0; target=no.target:None
-### Stride Repeats (1694701969)
-Segment 1:
-- warmup; time=900.0; target=no.target:None
-- other; lap.button=; target=no.target:None
-- repeat; iterations=12.0
-  - interval; time=20.0; target=cadence:180.0
-  - recovery; time=45.0; target=no.target:None
-- cooldown; time=900.0; target=no.target:None
-
 ## Timeseries (Charts tab data)
 525 samples. Column names are Garmin's own field names; `elapsed_s` is seconds since the run started.
 

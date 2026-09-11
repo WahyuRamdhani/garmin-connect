@@ -87,11 +87,11 @@
     "hasMultiDayActivities": false,
     "personalRecord": false,
     "manualActivity": false,
-    "trimmed": false,
-    "elevationCorrected": true,
     "autoCalcCalories": false,
     "favorite": false,
+    "elevationCorrected": true,
     "runPowerWindDataEnabled": null,
+    "trimmed": false,
     "gcj02": false
   },
   "summaryDTO": {
