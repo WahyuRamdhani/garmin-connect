@@ -86,10 +86,10 @@
     "sessionResultType": "ORIGINAL",
     "hasMultiDayActivities": false,
     "personalRecord": false,
-    "gcj02": false,
     "runPowerWindDataEnabled": null,
-    "trimmed": false,
+    "gcj02": false,
     "elevationCorrected": true,
+    "trimmed": false,
     "manualActivity": false,
     "autoCalcCalories": false,
     "favorite": false

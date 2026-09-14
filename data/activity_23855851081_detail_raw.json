@@ -81,14 +81,14 @@
     "hasHeatMap": false,
     "sessionResultType": "ORIGINAL",
     "hasMultiDayActivities": false,
+    "personalRecord": false,
     "gcj02": false,
-    "autoCalcCalories": false,
-    "favorite": false,
-    "trimmed": false,
-    "elevationCorrected": true,
     "runPowerWindDataEnabled": null,
+    "elevationCorrected": true,
+    "trimmed": false,
     "manualActivity": false,
-    "personalRecord": false
+    "autoCalcCalories": false,
+    "favorite": false
   },
   "summaryDTO": {
     "startTimeLocal": "2026-08-05T06:07:23.0",
