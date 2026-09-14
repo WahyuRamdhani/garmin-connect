@@ -11,8 +11,8 @@
     "typeKey": "running",
     "parentTypeId": 17,
     "isHidden": false,
-    "restricted": false,
-    "trimmable": true
+    "trimmable": true,
+    "restricted": false
   },
   "eventTypeDTO": {
     "typeId": 9,
@@ -85,14 +85,14 @@
     "trainingPlanId": 1784472036,
     "sessionResultType": "ORIGINAL",
     "hasMultiDayActivities": false,
-    "personalRecord": false,
     "runPowerWindDataEnabled": null,
-    "gcj02": false,
-    "elevationCorrected": true,
+    "personalRecord": false,
     "trimmed": false,
+    "elevationCorrected": true,
     "manualActivity": false,
     "autoCalcCalories": false,
-    "favorite": false
+    "favorite": false,
+    "gcj02": false
   },
   "summaryDTO": {
     "startTimeLocal": "2026-08-18T16:57:04.0",
