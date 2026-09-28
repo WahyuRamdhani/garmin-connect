@@ -11,8 +11,8 @@
     "typeKey": "running",
     "parentTypeId": 17,
     "isHidden": false,
-    "trimmable": true,
-    "restricted": false
+    "restricted": false,
+    "trimmable": true
   },
   "eventTypeDTO": {
     "typeId": 9,
@@ -88,11 +88,11 @@
     "elevationCorrected": true,
     "trimmed": false,
     "manualActivity": false,
+    "runPowerWindDataEnabled": null,
     "autoCalcCalories": false,
     "favorite": false,
-    "runPowerWindDataEnabled": null,
-    "gcj02": false,
-    "personalRecord": false
+    "personalRecord": false,
+    "gcj02": false
   },
   "summaryDTO": {
     "startTimeLocal": "2026-09-23T05:35:17.0",
