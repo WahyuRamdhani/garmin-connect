@@ -89,10 +89,10 @@
     "gcj02": false,
     "runPowerWindDataEnabled": null,
     "manualActivity": false,
-    "autoCalcCalories": false,
     "favorite": false,
-    "elevationCorrected": true,
-    "trimmed": false
+    "trimmed": false,
+    "autoCalcCalories": false,
+    "elevationCorrected": true
   },
   "summaryDTO": {
     "startTimeLocal": "2026-08-18T16:57:04.0",

@@ -19,62 +19,6 @@
       },
       "workoutScheduleSummaries": [
         {
-          "scheduledWorkoutId": 1777620477,
-          "workoutUuid": null,
-          "workoutId": 1698126366,
-          "workoutName": "Progression Run",
-          "workoutType": "running",
-          "scheduleDate": "2026-09-23",
-          "atpPlanId": 1784472036,
-          "atpPlanTypeId": null,
-          "itpPlanId": null,
-          "selfGuidedPlanId": null,
-          "fbtAdaptivePlanId": null,
-          "tpPlanName": null,
-          "ownerId": 148788505,
-          "associatedActivityId": 24462874131,
-          "priority": null,
-          "associatedActivityDateTime": "2026-09-23T05:35:17.0",
-          "estimatedDurationInSecs": null,
-          "estimatedDistanceInMeters": null,
-          "estimateType": null,
-          "estimatedDistanceUnit": null,
-          "trainingPlanId": null,
-          "tpType": null,
-          "workoutPhrase": null,
-          "isRestDay": null,
-          "race": false,
-          "protected": false
-        },
-        {
-          "scheduledWorkoutId": 1779228109,
-          "workoutUuid": null,
-          "workoutId": 1699778831,
-          "workoutName": "Easy Run",
-          "workoutType": "running",
-          "scheduleDate": "2026-09-25",
-          "atpPlanId": 1784472036,
-          "atpPlanTypeId": null,
-          "itpPlanId": null,
-          "selfGuidedPlanId": null,
-          "fbtAdaptivePlanId": null,
-          "tpPlanName": null,
-          "ownerId": 148788505,
-          "associatedActivityId": 24488036408,
-          "priority": null,
-          "associatedActivityDateTime": "2026-09-25T05:54:37.0",
-          "estimatedDurationInSecs": null,
-          "estimatedDistanceInMeters": null,
-          "estimateType": null,
-          "estimatedDistanceUnit": null,
-          "trainingPlanId": null,
-          "tpType": null,
-          "workoutPhrase": null,
-          "isRestDay": null,
-          "race": false,
-          "protected": false
-        },
-        {
           "scheduledWorkoutId": 1784768902,
           "workoutUuid": null,
           "workoutId": 1705410191,
@@ -99,8 +43,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "race": false,
-          "protected": false
+          "protected": false,
+          "race": false
         },
         {
           "scheduledWorkoutId": 1786453518,
@@ -127,8 +71,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "race": false,
-          "protected": false
+          "protected": false,
+          "race": false
         },
         {
           "scheduledWorkoutId": 1787977461,
@@ -155,8 +99,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "race": false,
-          "protected": false
+          "protected": false,
+          "race": false
         },
         {
           "scheduledWorkoutId": 1790881031,
@@ -183,8 +127,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "race": true,
-          "protected": true
+          "protected": true,
+          "race": true
         }
       ]
     }

@@ -47,21 +47,6 @@ Date: 2026-10-04 (2026-10-04 05:25:50)
 | 4 | 164 | 33.47 | 44.0% |
 | 5 | 176 | 38.11 | 50.1% |
 
-## Garmin Coach schedule
-Week containing: 2026-10-04
-
-| Date | Workout | Type | Est. duration (min) | Est. distance (km) | Status |
-|---|---|---|---|---|---|
-| 2026-09-27 | Stride Repeats |  |  |  | Scheduled |
-| 2026-09-28 | Stride Repeats |  |  |  | Completed |
-| 2026-09-30 | Easy Run |  |  |  | Completed |
-| 2026-10-04 | 10K Race |  |  | 10.0 | Scheduled |
-
-## Garmin Coach workout details
-### 10K Race (1711656058)
-Segment 1:
-- interval; distance=10000.0; target=no.target:None
-
 ## Timeseries (Charts tab data)
 850 samples. Column names are Garmin's own field names; `elapsed_s` is seconds since the run started.
 
