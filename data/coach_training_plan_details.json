@@ -1,11 +1,11 @@
 [
   {
-    "workoutId": 1711656058,
+    "workoutId": 1719266958,
     "ownerId": 148788505,
-    "workoutName": "10K Race",
-    "description": "Race time! Good Luck!",
-    "updatedDate": "2026-09-27T22:13:10.0",
-    "createdDate": "2026-09-27T22:13:10.0",
+    "workoutName": "Benchmark Run",
+    "description": "Warm up, run and walk with strong effort, cool down.",
+    "updatedDate": "2026-10-04T22:28:00.0",
+    "createdDate": "2026-10-04T22:28:00.0",
     "sportType": {
       "sportTypeId": 1,
       "sportTypeKey": "running",
@@ -24,8 +24,8 @@
       "vivokidUser": false
     },
     "sharedWithUsers": null,
-    "estimatedDurationInSecs": null,
-    "estimatedDistanceInMeters": 10000.0,
+    "estimatedDurationInSecs": 540,
+    "estimatedDistanceInMeters": null,
     "workoutSegments": [
       {
         "segmentOrder": 1,
@@ -45,22 +45,74 @@
         "workoutSteps": [
           {
             "type": "ExecutableStepDTO",
-            "stepId": 14748677965,
+            "stepId": 14822633698,
             "stepOrder": 1,
+            "stepType": {
+              "stepTypeId": 1,
+              "stepTypeKey": "warmup",
+              "displayOrder": 1
+            },
+            "childStepId": null,
+            "description": "Walk or jog lightly.",
+            "endCondition": {
+              "conditionTypeId": 2,
+              "conditionTypeKey": "time",
+              "displayOrder": 2,
+              "displayable": true
+            },
+            "endConditionValue": 120.0,
+            "preferredEndConditionUnit": null,
+            "endConditionCompare": null,
+            "targetType": {
+              "workoutTargetTypeId": 1,
+              "workoutTargetTypeKey": "no.target",
+              "displayOrder": 1
+            },
+            "targetValueOne": null,
+            "targetValueTwo": null,
+            "targetValueUnit": null,
+            "zoneNumber": null,
+            "secondaryTargetType": null,
+            "secondaryTargetValueOne": null,
+            "secondaryTargetValueTwo": null,
+            "secondaryTargetValueUnit": null,
+            "secondaryZoneNumber": null,
+            "endConditionZone": null,
+            "strokeType": {
+              "strokeTypeId": 0,
+              "strokeTypeKey": null,
+              "displayOrder": 0
+            },
+            "equipmentType": {
+              "equipmentTypeId": 0,
+              "equipmentTypeKey": null,
+              "displayOrder": 0
+            },
+            "category": null,
+            "exerciseName": null,
+            "workoutProvider": null,
+            "providerExerciseSourceId": null,
+            "weightValue": null,
+            "weightUnit": null
+          },
+          {
+            "type": "ExecutableStepDTO",
+            "stepId": 14822633699,
+            "stepOrder": 2,
             "stepType": {
               "stepTypeId": 3,
               "stepTypeKey": "interval",
               "displayOrder": 3
             },
             "childStepId": null,
-            "description": "Race time! You can do it! Give it your best effort!",
+            "description": "Run strong. Walk if you need to.",
             "endCondition": {
-              "conditionTypeId": 3,
-              "conditionTypeKey": "distance",
-              "displayOrder": 3,
+              "conditionTypeId": 2,
+              "conditionTypeKey": "time",
+              "displayOrder": 2,
               "displayable": true
             },
-            "endConditionValue": 10000.0,
+            "endConditionValue": 300.0,
             "preferredEndConditionUnit": null,
             "endConditionCompare": null,
             "targetType": {
@@ -94,6 +146,58 @@
             "providerExerciseSourceId": null,
             "weightValue": null,
             "weightUnit": null
+          },
+          {
+            "type": "ExecutableStepDTO",
+            "stepId": 14822633700,
+            "stepOrder": 3,
+            "stepType": {
+              "stepTypeId": 2,
+              "stepTypeKey": "cooldown",
+              "displayOrder": 2
+            },
+            "childStepId": null,
+            "description": "Walk or jog lightly.",
+            "endCondition": {
+              "conditionTypeId": 2,
+              "conditionTypeKey": "time",
+              "displayOrder": 2,
+              "displayable": true
+            },
+            "endConditionValue": 120.0,
+            "preferredEndConditionUnit": null,
+            "endConditionCompare": null,
+            "targetType": {
+              "workoutTargetTypeId": 1,
+              "workoutTargetTypeKey": "no.target",
+              "displayOrder": 1
+            },
+            "targetValueOne": null,
+            "targetValueTwo": null,
+            "targetValueUnit": null,
+            "zoneNumber": null,
+            "secondaryTargetType": null,
+            "secondaryTargetValueOne": null,
+            "secondaryTargetValueTwo": null,
+            "secondaryTargetValueUnit": null,
+            "secondaryZoneNumber": null,
+            "endConditionZone": null,
+            "strokeType": {
+              "strokeTypeId": 0,
+              "strokeTypeKey": null,
+              "displayOrder": 0
+            },
+            "equipmentType": {
+              "equipmentTypeId": 0,
+              "equipmentTypeKey": null,
+              "displayOrder": 0
+            },
+            "category": null,
+            "exerciseName": null,
+            "workoutProvider": null,
+            "providerExerciseSourceId": null,
+            "weightValue": null,
+            "weightUnit": null
           }
         ]
       }
@@ -104,7 +208,7 @@
     "workoutProvider": null,
     "workoutSourceId": null,
     "uploadTimestamp": null,
-    "atpPlanId": 1784472036,
+    "atpPlanId": 1791152880,
     "consumer": null,
     "consumerName": null,
     "consumerImageURL": null,
@@ -118,7 +222,7 @@
       "unitKey": null,
       "factor": null
     },
-    "workoutThumbnailUrl": "https://connect.garmin.com/chart-service/workout?data=md:s3,c3=1000000.0;",
+    "workoutThumbnailUrl": "https://connect.garmin.com/chart-service/workout?data=md:s1,c2=120000.0;s3,c2=300000.0;s2,c2=120000.0;",
     "isSessionTransitionEnabled": null,
     "specializedWorkoutCategories": [
       "ATP"
