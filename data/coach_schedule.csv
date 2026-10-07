@@ -1,4 +1,5 @@
 date,plan_name,workout_name,sport,workout_type,estimated_duration_min,estimated_distance_km,completed,activity_id,workout_id,workout_uuid,is_rest_day,is_race_day
-2026-10-07,,Benchmark Run,running,,9.0,,False,,1719266958,,False,False
-2026-10-09,,,,,,,False,,,,False,False
-2026-10-11,,,,,,,False,,,,False,False
+2026-10-07,,Benchmark Run,running,,,,True,24637523086,1719266958,,False,False
+2026-10-09,,Hill Repeats,running,,,,False,,1722467587,,False,False
+2026-10-11,,Long Easy Run,running,,,,False,,1722467589,,False,False
+2026-10-14,,Goal Pace Repeats,running,,,,False,,1722467590,,False,False

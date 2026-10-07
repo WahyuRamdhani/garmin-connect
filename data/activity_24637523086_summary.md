@@ -39,54 +39,6 @@ Date: 2026-10-07 (2026-10-07 17:07:16)
 | 4 | 165 | 2.77 | 33.0% |
 | 5 | 178 | 1.76 | 21.0% |
 
-## Garmin Coach schedule
-Week containing: 2026-10-07
-
-| Date | Workout | Type | Est. duration (min) | Est. distance (km) | Status |
-|---|---|---|---|---|---|
-| 2026-10-07 | Benchmark Run |  |  |  | Completed |
-| 2026-10-09 | Hill Repeats |  |  |  | Scheduled |
-| 2026-10-11 | Long Easy Run |  |  |  | Scheduled |
-| 2026-10-14 | Goal Pace Repeats |  |  |  | Scheduled |
-
-## Garmin Coach workout details
-### Hill Repeats (1722467587)
-Segment 1:
-- warmup; time=300.0; target=no.target:None
-- other; lap.button=; target=no.target:None
-- repeat; iterations=4.0
-  - interval; time=30.0; target=cadence:150.0
-  - recovery; time=30.0; target=no.target:None
-- other; lap.button=; target=no.target:None
-- repeat; iterations=4.0
-  - interval; time=30.0; target=no.target:None
-- repeat; iterations=4.0
-  - other; lap.button=; target=no.target:None
-  - interval; time=15.0; target=no.target:None
-  - recovery; time=60.0; target=no.target:None
-  - interval; time=15.0; target=no.target:None
-- cooldown; time=300.0; target=no.target:None
-### Long Easy Run (1722467589)
-Segment 1:
-- warmup; time=300.0; target=no.target:None
-- interval; distance=11263.0; target=no.target:None
-- cooldown; time=300.0; target=no.target:None
-### Goal Pace Repeats (1722467590)
-Segment 1:
-- warmup; time=300.0; target=no.target:None
-- other; lap.button=; target=no.target:None
-- repeat; iterations=4.0
-  - interval; time=30.0; target=cadence:150.0
-  - recovery; time=30.0; target=no.target:None
-- other; lap.button=; target=no.target:None
-- repeat; iterations=4.0
-  - interval; time=30.0; target=no.target:None
-- other; lap.button=; target=no.target:None
-- repeat; iterations=5.0
-  - interval; distance=800.0; target=pace.zone:2.9846216
-  - recovery; time=180.0; target=no.target:None
-- cooldown; time=300.0; target=no.target:None
-
 ## Timeseries (Charts tab data)
 115 samples. Column names are Garmin's own field names; `elapsed_s` is seconds since the run started.
 

@@ -1,11 +1,11 @@
 [
   {
-    "workoutId": 1719266958,
+    "workoutId": 1722467587,
     "ownerId": 148788505,
-    "workoutName": "Benchmark Run",
-    "description": "Warm up, run and walk with strong effort, cool down.",
-    "updatedDate": "2026-10-04T22:28:00.0",
-    "createdDate": "2026-10-04T22:28:00.0",
+    "workoutName": "Hill Repeats",
+    "description": "Warm up, cadence drills, acceleration-glider drills, hill repeats, cool down.",
+    "updatedDate": "2026-10-07T10:16:49.0",
+    "createdDate": "2026-10-07T10:16:49.0",
     "sportType": {
       "sportTypeId": 1,
       "sportTypeKey": "running",
@@ -24,7 +24,7 @@
       "vivokidUser": false
     },
     "sharedWithUsers": null,
-    "estimatedDurationInSecs": 540,
+    "estimatedDurationInSecs": null,
     "estimatedDistanceInMeters": null,
     "workoutSegments": [
       {
@@ -45,7 +45,7 @@
         "workoutSteps": [
           {
             "type": "ExecutableStepDTO",
-            "stepId": 14822633698,
+            "stepId": 14852266940,
             "stepOrder": 1,
             "stepType": {
               "stepTypeId": 1,
@@ -60,7 +60,7 @@
               "displayOrder": 2,
               "displayable": true
             },
-            "endConditionValue": 120.0,
+            "endConditionValue": 300.0,
             "preferredEndConditionUnit": null,
             "endConditionCompare": null,
             "targetType": {
@@ -97,22 +97,22 @@
           },
           {
             "type": "ExecutableStepDTO",
-            "stepId": 14822633699,
+            "stepId": 14852266941,
             "stepOrder": 2,
             "stepType": {
-              "stepTypeId": 3,
-              "stepTypeKey": "interval",
-              "displayOrder": 3
+              "stepTypeId": 7,
+              "stepTypeKey": "other",
+              "displayOrder": 7
             },
             "childStepId": null,
-            "description": "Run strong. Walk if you need to.",
+            "description": "Up next: Cadence Drill",
             "endCondition": {
-              "conditionTypeId": 2,
-              "conditionTypeKey": "time",
-              "displayOrder": 2,
+              "conditionTypeId": 1,
+              "conditionTypeKey": "lap.button",
+              "displayOrder": 1,
               "displayable": true
             },
-            "endConditionValue": 300.0,
+            "endConditionValue": null,
             "preferredEndConditionUnit": null,
             "endConditionCompare": null,
             "targetType": {
@@ -140,17 +140,508 @@
               "equipmentTypeKey": null,
               "displayOrder": 0
             },
-            "category": "RUN",
-            "exerciseName": "RUN",
+            "category": null,
+            "exerciseName": null,
             "workoutProvider": null,
             "providerExerciseSourceId": null,
             "weightValue": null,
             "weightUnit": null
           },
           {
-            "type": "ExecutableStepDTO",
-            "stepId": 14822633700,
+            "type": "RepeatGroupDTO",
+            "stepId": 14852266942,
             "stepOrder": 3,
+            "stepType": {
+              "stepTypeId": 6,
+              "stepTypeKey": "repeat",
+              "displayOrder": 6
+            },
+            "childStepId": 1,
+            "numberOfIterations": 4,
+            "workoutSteps": [
+              {
+                "type": "ExecutableStepDTO",
+                "stepId": 14852266943,
+                "stepOrder": 4,
+                "stepType": {
+                  "stepTypeId": 3,
+                  "stepTypeKey": "interval",
+                  "displayOrder": 3
+                },
+                "childStepId": 1,
+                "description": "Cadence Drill\nFeet low to the ground, light touch! You can always improve by one more step. ",
+                "endCondition": {
+                  "conditionTypeId": 2,
+                  "conditionTypeKey": "time",
+                  "displayOrder": 2,
+                  "displayable": true
+                },
+                "endConditionValue": 30.0,
+                "preferredEndConditionUnit": null,
+                "endConditionCompare": null,
+                "targetType": {
+                  "workoutTargetTypeId": 3,
+                  "workoutTargetTypeKey": "cadence",
+                  "displayOrder": 3
+                },
+                "targetValueOne": 150.0,
+                "targetValueTwo": 200.0,
+                "targetValueUnit": null,
+                "zoneNumber": null,
+                "secondaryTargetType": null,
+                "secondaryTargetValueOne": null,
+                "secondaryTargetValueTwo": null,
+                "secondaryTargetValueUnit": null,
+                "secondaryZoneNumber": null,
+                "endConditionZone": null,
+                "strokeType": {
+                  "strokeTypeId": 0,
+                  "strokeTypeKey": null,
+                  "displayOrder": 0
+                },
+                "equipmentType": {
+                  "equipmentTypeId": 0,
+                  "equipmentTypeKey": null,
+                  "displayOrder": 0
+                },
+                "category": "RUN",
+                "exerciseName": "RUN",
+                "workoutProvider": null,
+                "providerExerciseSourceId": null,
+                "weightValue": null,
+                "weightUnit": null
+              },
+              {
+                "type": "ExecutableStepDTO",
+                "stepId": 14852266944,
+                "stepOrder": 5,
+                "stepType": {
+                  "stepTypeId": 4,
+                  "stepTypeKey": "recovery",
+                  "displayOrder": 4
+                },
+                "childStepId": 1,
+                "description": "Walk for recovery.",
+                "endCondition": {
+                  "conditionTypeId": 2,
+                  "conditionTypeKey": "time",
+                  "displayOrder": 2,
+                  "displayable": true
+                },
+                "endConditionValue": 30.0,
+                "preferredEndConditionUnit": null,
+                "endConditionCompare": null,
+                "targetType": {
+                  "workoutTargetTypeId": 1,
+                  "workoutTargetTypeKey": "no.target",
+                  "displayOrder": 1
+                },
+                "targetValueOne": null,
+                "targetValueTwo": null,
+                "targetValueUnit": null,
+                "zoneNumber": null,
+                "secondaryTargetType": null,
+                "secondaryTargetValueOne": null,
+                "secondaryTargetValueTwo": null,
+                "secondaryTargetValueUnit": null,
+                "secondaryZoneNumber": null,
+                "endConditionZone": null,
+                "strokeType": {
+                  "strokeTypeId": 0,
+                  "strokeTypeKey": null,
+                  "displayOrder": 0
+                },
+                "equipmentType": {
+                  "equipmentTypeId": 0,
+                  "equipmentTypeKey": null,
+                  "displayOrder": 0
+                },
+                "category": null,
+                "exerciseName": null,
+                "workoutProvider": null,
+                "providerExerciseSourceId": null,
+                "weightValue": null,
+                "weightUnit": null
+              }
+            ],
+            "endConditionValue": 4.0,
+            "preferredEndConditionUnit": null,
+            "endConditionCompare": null,
+            "endCondition": {
+              "conditionTypeId": 7,
+              "conditionTypeKey": "iterations",
+              "displayOrder": 7,
+              "displayable": false
+            },
+            "skipLastRestStep": null,
+            "smartRepeat": false
+          },
+          {
+            "type": "ExecutableStepDTO",
+            "stepId": 14852266945,
+            "stepOrder": 6,
+            "stepType": {
+              "stepTypeId": 7,
+              "stepTypeKey": "other",
+              "displayOrder": 7
+            },
+            "childStepId": null,
+            "description": "Up next: Acceleration-glider Drill",
+            "endCondition": {
+              "conditionTypeId": 1,
+              "conditionTypeKey": "lap.button",
+              "displayOrder": 1,
+              "displayable": true
+            },
+            "endConditionValue": null,
+            "preferredEndConditionUnit": null,
+            "endConditionCompare": null,
+            "targetType": {
+              "workoutTargetTypeId": 1,
+              "workoutTargetTypeKey": "no.target",
+              "displayOrder": 1
+            },
+            "targetValueOne": null,
+            "targetValueTwo": null,
+            "targetValueUnit": null,
+            "zoneNumber": null,
+            "secondaryTargetType": null,
+            "secondaryTargetValueOne": null,
+            "secondaryTargetValueTwo": null,
+            "secondaryTargetValueUnit": null,
+            "secondaryZoneNumber": null,
+            "endConditionZone": null,
+            "strokeType": {
+              "strokeTypeId": 0,
+              "strokeTypeKey": null,
+              "displayOrder": 0
+            },
+            "equipmentType": {
+              "equipmentTypeId": 0,
+              "equipmentTypeKey": null,
+              "displayOrder": 0
+            },
+            "category": null,
+            "exerciseName": null,
+            "workoutProvider": null,
+            "providerExerciseSourceId": null,
+            "weightValue": null,
+            "weightUnit": null
+          },
+          {
+            "type": "RepeatGroupDTO",
+            "stepId": 14852266946,
+            "stepOrder": 7,
+            "stepType": {
+              "stepTypeId": 6,
+              "stepTypeKey": "repeat",
+              "displayOrder": 6
+            },
+            "childStepId": 2,
+            "numberOfIterations": 4,
+            "workoutSteps": [
+              {
+                "type": "ExecutableStepDTO",
+                "stepId": 14852266947,
+                "stepOrder": 8,
+                "stepType": {
+                  "stepTypeId": 3,
+                  "stepTypeKey": "interval",
+                  "displayOrder": 3
+                },
+                "childStepId": 2,
+                "description": "Acceleration-Glider Drill\nTransition smoothly from walk to jog to run, then glide seamlessly back to a walk.",
+                "endCondition": {
+                  "conditionTypeId": 2,
+                  "conditionTypeKey": "time",
+                  "displayOrder": 2,
+                  "displayable": true
+                },
+                "endConditionValue": 30.0,
+                "preferredEndConditionUnit": null,
+                "endConditionCompare": null,
+                "targetType": {
+                  "workoutTargetTypeId": 1,
+                  "workoutTargetTypeKey": "no.target",
+                  "displayOrder": 1
+                },
+                "targetValueOne": null,
+                "targetValueTwo": null,
+                "targetValueUnit": null,
+                "zoneNumber": null,
+                "secondaryTargetType": null,
+                "secondaryTargetValueOne": null,
+                "secondaryTargetValueTwo": null,
+                "secondaryTargetValueUnit": null,
+                "secondaryZoneNumber": null,
+                "endConditionZone": null,
+                "strokeType": {
+                  "strokeTypeId": 0,
+                  "strokeTypeKey": null,
+                  "displayOrder": 0
+                },
+                "equipmentType": {
+                  "equipmentTypeId": 0,
+                  "equipmentTypeKey": null,
+                  "displayOrder": 0
+                },
+                "category": "RUN",
+                "exerciseName": "RUN",
+                "workoutProvider": null,
+                "providerExerciseSourceId": null,
+                "weightValue": null,
+                "weightUnit": null
+              }
+            ],
+            "endConditionValue": 4.0,
+            "preferredEndConditionUnit": null,
+            "endConditionCompare": null,
+            "endCondition": {
+              "conditionTypeId": 7,
+              "conditionTypeKey": "iterations",
+              "displayOrder": 7,
+              "displayable": false
+            },
+            "skipLastRestStep": null,
+            "smartRepeat": false
+          },
+          {
+            "type": "RepeatGroupDTO",
+            "stepId": 14852266948,
+            "stepOrder": 9,
+            "stepType": {
+              "stepTypeId": 6,
+              "stepTypeKey": "repeat",
+              "displayOrder": 6
+            },
+            "childStepId": 3,
+            "numberOfIterations": 4,
+            "workoutSteps": [
+              {
+                "type": "ExecutableStepDTO",
+                "stepId": 14852266949,
+                "stepOrder": 10,
+                "stepType": {
+                  "stepTypeId": 7,
+                  "stepTypeKey": "other",
+                  "displayOrder": 7
+                },
+                "childStepId": 3,
+                "description": "Get in position: Bottom of hill.",
+                "endCondition": {
+                  "conditionTypeId": 1,
+                  "conditionTypeKey": "lap.button",
+                  "displayOrder": 1,
+                  "displayable": true
+                },
+                "endConditionValue": null,
+                "preferredEndConditionUnit": null,
+                "endConditionCompare": null,
+                "targetType": {
+                  "workoutTargetTypeId": 1,
+                  "workoutTargetTypeKey": "no.target",
+                  "displayOrder": 1
+                },
+                "targetValueOne": null,
+                "targetValueTwo": null,
+                "targetValueUnit": null,
+                "zoneNumber": null,
+                "secondaryTargetType": null,
+                "secondaryTargetValueOne": null,
+                "secondaryTargetValueTwo": null,
+                "secondaryTargetValueUnit": null,
+                "secondaryZoneNumber": null,
+                "endConditionZone": null,
+                "strokeType": {
+                  "strokeTypeId": 0,
+                  "strokeTypeKey": null,
+                  "displayOrder": 0
+                },
+                "equipmentType": {
+                  "equipmentTypeId": 0,
+                  "equipmentTypeKey": null,
+                  "displayOrder": 0
+                },
+                "category": null,
+                "exerciseName": null,
+                "workoutProvider": null,
+                "providerExerciseSourceId": null,
+                "weightValue": null,
+                "weightUnit": null
+              },
+              {
+                "type": "ExecutableStepDTO",
+                "stepId": 14852266950,
+                "stepOrder": 11,
+                "stepType": {
+                  "stepTypeId": 3,
+                  "stepTypeKey": "interval",
+                  "displayOrder": 3
+                },
+                "childStepId": 3,
+                "description": "Uphill\nShorten your stride and increase cadence up the hill.",
+                "endCondition": {
+                  "conditionTypeId": 2,
+                  "conditionTypeKey": "time",
+                  "displayOrder": 2,
+                  "displayable": true
+                },
+                "endConditionValue": 15.0,
+                "preferredEndConditionUnit": null,
+                "endConditionCompare": null,
+                "targetType": {
+                  "workoutTargetTypeId": 1,
+                  "workoutTargetTypeKey": "no.target",
+                  "displayOrder": 1
+                },
+                "targetValueOne": null,
+                "targetValueTwo": null,
+                "targetValueUnit": null,
+                "zoneNumber": null,
+                "secondaryTargetType": null,
+                "secondaryTargetValueOne": null,
+                "secondaryTargetValueTwo": null,
+                "secondaryTargetValueUnit": null,
+                "secondaryZoneNumber": null,
+                "endConditionZone": null,
+                "strokeType": {
+                  "strokeTypeId": 0,
+                  "strokeTypeKey": null,
+                  "displayOrder": 0
+                },
+                "equipmentType": {
+                  "equipmentTypeId": 0,
+                  "equipmentTypeKey": null,
+                  "displayOrder": 0
+                },
+                "category": "RUN",
+                "exerciseName": "RUN",
+                "workoutProvider": null,
+                "providerExerciseSourceId": null,
+                "weightValue": null,
+                "weightUnit": null
+              },
+              {
+                "type": "ExecutableStepDTO",
+                "stepId": 14852266951,
+                "stepOrder": 12,
+                "stepType": {
+                  "stepTypeId": 4,
+                  "stepTypeKey": "recovery",
+                  "displayOrder": 4
+                },
+                "childStepId": 3,
+                "description": "Walk for recovery.",
+                "endCondition": {
+                  "conditionTypeId": 2,
+                  "conditionTypeKey": "time",
+                  "displayOrder": 2,
+                  "displayable": true
+                },
+                "endConditionValue": 60.0,
+                "preferredEndConditionUnit": null,
+                "endConditionCompare": null,
+                "targetType": {
+                  "workoutTargetTypeId": 1,
+                  "workoutTargetTypeKey": "no.target",
+                  "displayOrder": 1
+                },
+                "targetValueOne": null,
+                "targetValueTwo": null,
+                "targetValueUnit": null,
+                "zoneNumber": null,
+                "secondaryTargetType": null,
+                "secondaryTargetValueOne": null,
+                "secondaryTargetValueTwo": null,
+                "secondaryTargetValueUnit": null,
+                "secondaryZoneNumber": null,
+                "endConditionZone": null,
+                "strokeType": {
+                  "strokeTypeId": 0,
+                  "strokeTypeKey": null,
+                  "displayOrder": 0
+                },
+                "equipmentType": {
+                  "equipmentTypeId": 0,
+                  "equipmentTypeKey": null,
+                  "displayOrder": 0
+                },
+                "category": null,
+                "exerciseName": null,
+                "workoutProvider": null,
+                "providerExerciseSourceId": null,
+                "weightValue": null,
+                "weightUnit": null
+              },
+              {
+                "type": "ExecutableStepDTO",
+                "stepId": 14852266952,
+                "stepOrder": 13,
+                "stepType": {
+                  "stepTypeId": 3,
+                  "stepTypeKey": "interval",
+                  "displayOrder": 3
+                },
+                "childStepId": 3,
+                "description": "Downhill\nRun down with a light touch, feet low.",
+                "endCondition": {
+                  "conditionTypeId": 2,
+                  "conditionTypeKey": "time",
+                  "displayOrder": 2,
+                  "displayable": true
+                },
+                "endConditionValue": 15.0,
+                "preferredEndConditionUnit": null,
+                "endConditionCompare": null,
+                "targetType": {
+                  "workoutTargetTypeId": 1,
+                  "workoutTargetTypeKey": "no.target",
+                  "displayOrder": 1
+                },
+                "targetValueOne": null,
+                "targetValueTwo": null,
+                "targetValueUnit": null,
+                "zoneNumber": null,
+                "secondaryTargetType": null,
+                "secondaryTargetValueOne": null,
+                "secondaryTargetValueTwo": null,
+                "secondaryTargetValueUnit": null,
+                "secondaryZoneNumber": null,
+                "endConditionZone": null,
+                "strokeType": {
+                  "strokeTypeId": 0,
+                  "strokeTypeKey": null,
+                  "displayOrder": 0
+                },
+                "equipmentType": {
+                  "equipmentTypeId": 0,
+                  "equipmentTypeKey": null,
+                  "displayOrder": 0
+                },
+                "category": "RUN",
+                "exerciseName": "RUN",
+                "workoutProvider": null,
+                "providerExerciseSourceId": null,
+                "weightValue": null,
+                "weightUnit": null
+              }
+            ],
+            "endConditionValue": 4.0,
+            "preferredEndConditionUnit": null,
+            "endConditionCompare": null,
+            "endCondition": {
+              "conditionTypeId": 7,
+              "conditionTypeKey": "iterations",
+              "displayOrder": 7,
+              "displayable": false
+            },
+            "skipLastRestStep": null,
+            "smartRepeat": false
+          },
+          {
+            "type": "ExecutableStepDTO",
+            "stepId": 14852266953,
+            "stepOrder": 14,
             "stepType": {
               "stepTypeId": 2,
               "stepTypeKey": "cooldown",
@@ -164,7 +655,7 @@
               "displayOrder": 2,
               "displayable": true
             },
-            "endConditionValue": 120.0,
+            "endConditionValue": 300.0,
             "preferredEndConditionUnit": null,
             "endConditionCompare": null,
             "targetType": {
@@ -222,7 +713,910 @@
       "unitKey": null,
       "factor": null
     },
-    "workoutThumbnailUrl": "https://connect.garmin.com/chart-service/workout?data=md:s1,c2=120000.0;s3,c2=300000.0;s2,c2=120000.0;",
+    "workoutThumbnailUrl": "https://connect.garmin.com/chart-service/workout?data=md:s1,c2=300000.0;s7,c1;4(s3,c2=30000.0,t3=v150.0~200.0;s4,c2=30000.0;);s7,c1;4(s3,c2=30000.0;);4(s7,c1;s3,c2=15000.0;s4,c2=60000.0;s3,c2=15000.0;);s2,c2=300000.0;",
+    "isSessionTransitionEnabled": null,
+    "specializedWorkoutCategories": [
+      "ATP"
+    ],
+    "shared": false
+  },
+  {
+    "workoutId": 1722467589,
+    "ownerId": 148788505,
+    "workoutName": "Long Easy Run",
+    "description": "Run at an easy pace.",
+    "updatedDate": "2026-10-07T10:16:49.0",
+    "createdDate": "2026-10-07T10:16:49.0",
+    "sportType": {
+      "sportTypeId": 1,
+      "sportTypeKey": "running",
+      "displayOrder": 1
+    },
+    "subSportType": null,
+    "trainingPlanId": null,
+    "author": {
+      "userProfilePk": 148788505,
+      "displayName": "a64a8344-995c-41fc-9056-a2447b14e9f4",
+      "fullName": "Wahyu",
+      "profileImgNameLarge": null,
+      "profileImgNameMedium": null,
+      "profileImgNameSmall": null,
+      "userPro": false,
+      "vivokidUser": false
+    },
+    "sharedWithUsers": null,
+    "estimatedDurationInSecs": null,
+    "estimatedDistanceInMeters": null,
+    "workoutSegments": [
+      {
+        "segmentOrder": 1,
+        "sportType": {
+          "sportTypeId": 1,
+          "sportTypeKey": "running",
+          "displayOrder": 1
+        },
+        "poolLengthUnit": null,
+        "poolLength": null,
+        "avgTrainingSpeed": null,
+        "estimatedDurationInSecs": null,
+        "estimatedDistanceInMeters": null,
+        "estimatedDistanceUnit": null,
+        "estimateType": null,
+        "description": null,
+        "workoutSteps": [
+          {
+            "type": "ExecutableStepDTO",
+            "stepId": 14852266963,
+            "stepOrder": 1,
+            "stepType": {
+              "stepTypeId": 1,
+              "stepTypeKey": "warmup",
+              "displayOrder": 1
+            },
+            "childStepId": null,
+            "description": "Walk or jog lightly.",
+            "endCondition": {
+              "conditionTypeId": 2,
+              "conditionTypeKey": "time",
+              "displayOrder": 2,
+              "displayable": true
+            },
+            "endConditionValue": 300.0,
+            "preferredEndConditionUnit": null,
+            "endConditionCompare": null,
+            "targetType": {
+              "workoutTargetTypeId": 1,
+              "workoutTargetTypeKey": "no.target",
+              "displayOrder": 1
+            },
+            "targetValueOne": null,
+            "targetValueTwo": null,
+            "targetValueUnit": null,
+            "zoneNumber": null,
+            "secondaryTargetType": null,
+            "secondaryTargetValueOne": null,
+            "secondaryTargetValueTwo": null,
+            "secondaryTargetValueUnit": null,
+            "secondaryZoneNumber": null,
+            "endConditionZone": null,
+            "strokeType": {
+              "strokeTypeId": 0,
+              "strokeTypeKey": null,
+              "displayOrder": 0
+            },
+            "equipmentType": {
+              "equipmentTypeId": 0,
+              "equipmentTypeKey": null,
+              "displayOrder": 0
+            },
+            "category": null,
+            "exerciseName": null,
+            "workoutProvider": null,
+            "providerExerciseSourceId": null,
+            "weightValue": null,
+            "weightUnit": null
+          },
+          {
+            "type": "ExecutableStepDTO",
+            "stepId": 14852266964,
+            "stepOrder": 2,
+            "stepType": {
+              "stepTypeId": 3,
+              "stepTypeKey": "interval",
+              "displayOrder": 3
+            },
+            "childStepId": null,
+            "description": "Run at an easy pace.",
+            "endCondition": {
+              "conditionTypeId": 3,
+              "conditionTypeKey": "distance",
+              "displayOrder": 3,
+              "displayable": true
+            },
+            "endConditionValue": 11263.0,
+            "preferredEndConditionUnit": null,
+            "endConditionCompare": null,
+            "targetType": {
+              "workoutTargetTypeId": 1,
+              "workoutTargetTypeKey": "no.target",
+              "displayOrder": 1
+            },
+            "targetValueOne": null,
+            "targetValueTwo": null,
+            "targetValueUnit": null,
+            "zoneNumber": null,
+            "secondaryTargetType": null,
+            "secondaryTargetValueOne": null,
+            "secondaryTargetValueTwo": null,
+            "secondaryTargetValueUnit": null,
+            "secondaryZoneNumber": null,
+            "endConditionZone": null,
+            "strokeType": {
+              "strokeTypeId": 0,
+              "strokeTypeKey": null,
+              "displayOrder": 0
+            },
+            "equipmentType": {
+              "equipmentTypeId": 0,
+              "equipmentTypeKey": null,
+              "displayOrder": 0
+            },
+            "category": "RUN",
+            "exerciseName": "RUN",
+            "workoutProvider": null,
+            "providerExerciseSourceId": null,
+            "weightValue": null,
+            "weightUnit": null
+          },
+          {
+            "type": "ExecutableStepDTO",
+            "stepId": 14852266965,
+            "stepOrder": 3,
+            "stepType": {
+              "stepTypeId": 2,
+              "stepTypeKey": "cooldown",
+              "displayOrder": 2
+            },
+            "childStepId": null,
+            "description": "Walk or jog lightly.",
+            "endCondition": {
+              "conditionTypeId": 2,
+              "conditionTypeKey": "time",
+              "displayOrder": 2,
+              "displayable": true
+            },
+            "endConditionValue": 300.0,
+            "preferredEndConditionUnit": null,
+            "endConditionCompare": null,
+            "targetType": {
+              "workoutTargetTypeId": 1,
+              "workoutTargetTypeKey": "no.target",
+              "displayOrder": 1
+            },
+            "targetValueOne": null,
+            "targetValueTwo": null,
+            "targetValueUnit": null,
+            "zoneNumber": null,
+            "secondaryTargetType": null,
+            "secondaryTargetValueOne": null,
+            "secondaryTargetValueTwo": null,
+            "secondaryTargetValueUnit": null,
+            "secondaryZoneNumber": null,
+            "endConditionZone": null,
+            "strokeType": {
+              "strokeTypeId": 0,
+              "strokeTypeKey": null,
+              "displayOrder": 0
+            },
+            "equipmentType": {
+              "equipmentTypeId": 0,
+              "equipmentTypeKey": null,
+              "displayOrder": 0
+            },
+            "category": null,
+            "exerciseName": null,
+            "workoutProvider": null,
+            "providerExerciseSourceId": null,
+            "weightValue": null,
+            "weightUnit": null
+          }
+        ]
+      }
+    ],
+    "poolLength": null,
+    "poolLengthUnit": null,
+    "locale": null,
+    "workoutProvider": null,
+    "workoutSourceId": null,
+    "uploadTimestamp": null,
+    "atpPlanId": 1791152880,
+    "consumer": null,
+    "consumerName": null,
+    "consumerImageURL": null,
+    "consumerWebsiteURL": null,
+    "workoutNameI18nKey": null,
+    "descriptionI18nKey": null,
+    "avgTrainingSpeed": 0.0,
+    "estimateType": null,
+    "estimatedDistanceUnit": {
+      "unitId": null,
+      "unitKey": null,
+      "factor": null
+    },
+    "workoutThumbnailUrl": "https://connect.garmin.com/chart-service/workout?data=md:s1,c2=300000.0;s3,c3=1126300.0;s2,c2=300000.0;",
+    "isSessionTransitionEnabled": null,
+    "specializedWorkoutCategories": [
+      "ATP"
+    ],
+    "shared": false
+  },
+  {
+    "workoutId": 1722467590,
+    "ownerId": 148788505,
+    "workoutName": "Goal Pace Repeats",
+    "description": "Warm up, cadence drills, acceleration-glider drills, race pace repeats, cool down.",
+    "updatedDate": "2026-10-07T10:16:49.0",
+    "createdDate": "2026-10-07T10:16:49.0",
+    "sportType": {
+      "sportTypeId": 1,
+      "sportTypeKey": "running",
+      "displayOrder": 1
+    },
+    "subSportType": null,
+    "trainingPlanId": null,
+    "author": {
+      "userProfilePk": 148788505,
+      "displayName": "a64a8344-995c-41fc-9056-a2447b14e9f4",
+      "fullName": "Wahyu",
+      "profileImgNameLarge": null,
+      "profileImgNameMedium": null,
+      "profileImgNameSmall": null,
+      "userPro": false,
+      "vivokidUser": false
+    },
+    "sharedWithUsers": null,
+    "estimatedDurationInSecs": null,
+    "estimatedDistanceInMeters": null,
+    "workoutSegments": [
+      {
+        "segmentOrder": 1,
+        "sportType": {
+          "sportTypeId": 1,
+          "sportTypeKey": "running",
+          "displayOrder": 1
+        },
+        "poolLengthUnit": null,
+        "poolLength": null,
+        "avgTrainingSpeed": null,
+        "estimatedDurationInSecs": null,
+        "estimatedDistanceInMeters": null,
+        "estimatedDistanceUnit": null,
+        "estimateType": null,
+        "description": null,
+        "workoutSteps": [
+          {
+            "type": "ExecutableStepDTO",
+            "stepId": 14852266966,
+            "stepOrder": 1,
+            "stepType": {
+              "stepTypeId": 1,
+              "stepTypeKey": "warmup",
+              "displayOrder": 1
+            },
+            "childStepId": null,
+            "description": "Walk or jog lightly.",
+            "endCondition": {
+              "conditionTypeId": 2,
+              "conditionTypeKey": "time",
+              "displayOrder": 2,
+              "displayable": true
+            },
+            "endConditionValue": 300.0,
+            "preferredEndConditionUnit": null,
+            "endConditionCompare": null,
+            "targetType": {
+              "workoutTargetTypeId": 1,
+              "workoutTargetTypeKey": "no.target",
+              "displayOrder": 1
+            },
+            "targetValueOne": null,
+            "targetValueTwo": null,
+            "targetValueUnit": null,
+            "zoneNumber": null,
+            "secondaryTargetType": null,
+            "secondaryTargetValueOne": null,
+            "secondaryTargetValueTwo": null,
+            "secondaryTargetValueUnit": null,
+            "secondaryZoneNumber": null,
+            "endConditionZone": null,
+            "strokeType": {
+              "strokeTypeId": 0,
+              "strokeTypeKey": null,
+              "displayOrder": 0
+            },
+            "equipmentType": {
+              "equipmentTypeId": 0,
+              "equipmentTypeKey": null,
+              "displayOrder": 0
+            },
+            "category": null,
+            "exerciseName": null,
+            "workoutProvider": null,
+            "providerExerciseSourceId": null,
+            "weightValue": null,
+            "weightUnit": null
+          },
+          {
+            "type": "ExecutableStepDTO",
+            "stepId": 14852266967,
+            "stepOrder": 2,
+            "stepType": {
+              "stepTypeId": 7,
+              "stepTypeKey": "other",
+              "displayOrder": 7
+            },
+            "childStepId": null,
+            "description": "Up next: Cadence Drill",
+            "endCondition": {
+              "conditionTypeId": 1,
+              "conditionTypeKey": "lap.button",
+              "displayOrder": 1,
+              "displayable": true
+            },
+            "endConditionValue": null,
+            "preferredEndConditionUnit": null,
+            "endConditionCompare": null,
+            "targetType": {
+              "workoutTargetTypeId": 1,
+              "workoutTargetTypeKey": "no.target",
+              "displayOrder": 1
+            },
+            "targetValueOne": null,
+            "targetValueTwo": null,
+            "targetValueUnit": null,
+            "zoneNumber": null,
+            "secondaryTargetType": null,
+            "secondaryTargetValueOne": null,
+            "secondaryTargetValueTwo": null,
+            "secondaryTargetValueUnit": null,
+            "secondaryZoneNumber": null,
+            "endConditionZone": null,
+            "strokeType": {
+              "strokeTypeId": 0,
+              "strokeTypeKey": null,
+              "displayOrder": 0
+            },
+            "equipmentType": {
+              "equipmentTypeId": 0,
+              "equipmentTypeKey": null,
+              "displayOrder": 0
+            },
+            "category": null,
+            "exerciseName": null,
+            "workoutProvider": null,
+            "providerExerciseSourceId": null,
+            "weightValue": null,
+            "weightUnit": null
+          },
+          {
+            "type": "RepeatGroupDTO",
+            "stepId": 14852266969,
+            "stepOrder": 3,
+            "stepType": {
+              "stepTypeId": 6,
+              "stepTypeKey": "repeat",
+              "displayOrder": 6
+            },
+            "childStepId": 1,
+            "numberOfIterations": 4,
+            "workoutSteps": [
+              {
+                "type": "ExecutableStepDTO",
+                "stepId": 14852266971,
+                "stepOrder": 4,
+                "stepType": {
+                  "stepTypeId": 3,
+                  "stepTypeKey": "interval",
+                  "displayOrder": 3
+                },
+                "childStepId": 1,
+                "description": "Cadence Drill\nFeet low to the ground, light touch! You can always improve by one more step. ",
+                "endCondition": {
+                  "conditionTypeId": 2,
+                  "conditionTypeKey": "time",
+                  "displayOrder": 2,
+                  "displayable": true
+                },
+                "endConditionValue": 30.0,
+                "preferredEndConditionUnit": null,
+                "endConditionCompare": null,
+                "targetType": {
+                  "workoutTargetTypeId": 3,
+                  "workoutTargetTypeKey": "cadence",
+                  "displayOrder": 3
+                },
+                "targetValueOne": 150.0,
+                "targetValueTwo": 200.0,
+                "targetValueUnit": null,
+                "zoneNumber": null,
+                "secondaryTargetType": null,
+                "secondaryTargetValueOne": null,
+                "secondaryTargetValueTwo": null,
+                "secondaryTargetValueUnit": null,
+                "secondaryZoneNumber": null,
+                "endConditionZone": null,
+                "strokeType": {
+                  "strokeTypeId": 0,
+                  "strokeTypeKey": null,
+                  "displayOrder": 0
+                },
+                "equipmentType": {
+                  "equipmentTypeId": 0,
+                  "equipmentTypeKey": null,
+                  "displayOrder": 0
+                },
+                "category": "RUN",
+                "exerciseName": "RUN",
+                "workoutProvider": null,
+                "providerExerciseSourceId": null,
+                "weightValue": null,
+                "weightUnit": null
+              },
+              {
+                "type": "ExecutableStepDTO",
+                "stepId": 14852266973,
+                "stepOrder": 5,
+                "stepType": {
+                  "stepTypeId": 4,
+                  "stepTypeKey": "recovery",
+                  "displayOrder": 4
+                },
+                "childStepId": 1,
+                "description": "Walk for recovery.",
+                "endCondition": {
+                  "conditionTypeId": 2,
+                  "conditionTypeKey": "time",
+                  "displayOrder": 2,
+                  "displayable": true
+                },
+                "endConditionValue": 30.0,
+                "preferredEndConditionUnit": null,
+                "endConditionCompare": null,
+                "targetType": {
+                  "workoutTargetTypeId": 1,
+                  "workoutTargetTypeKey": "no.target",
+                  "displayOrder": 1
+                },
+                "targetValueOne": null,
+                "targetValueTwo": null,
+                "targetValueUnit": null,
+                "zoneNumber": null,
+                "secondaryTargetType": null,
+                "secondaryTargetValueOne": null,
+                "secondaryTargetValueTwo": null,
+                "secondaryTargetValueUnit": null,
+                "secondaryZoneNumber": null,
+                "endConditionZone": null,
+                "strokeType": {
+                  "strokeTypeId": 0,
+                  "strokeTypeKey": null,
+                  "displayOrder": 0
+                },
+                "equipmentType": {
+                  "equipmentTypeId": 0,
+                  "equipmentTypeKey": null,
+                  "displayOrder": 0
+                },
+                "category": null,
+                "exerciseName": null,
+                "workoutProvider": null,
+                "providerExerciseSourceId": null,
+                "weightValue": null,
+                "weightUnit": null
+              }
+            ],
+            "endConditionValue": 4.0,
+            "preferredEndConditionUnit": null,
+            "endConditionCompare": null,
+            "endCondition": {
+              "conditionTypeId": 7,
+              "conditionTypeKey": "iterations",
+              "displayOrder": 7,
+              "displayable": false
+            },
+            "skipLastRestStep": null,
+            "smartRepeat": false
+          },
+          {
+            "type": "ExecutableStepDTO",
+            "stepId": 14852266975,
+            "stepOrder": 6,
+            "stepType": {
+              "stepTypeId": 7,
+              "stepTypeKey": "other",
+              "displayOrder": 7
+            },
+            "childStepId": null,
+            "description": "Up next: Acceleration-glider Drill",
+            "endCondition": {
+              "conditionTypeId": 1,
+              "conditionTypeKey": "lap.button",
+              "displayOrder": 1,
+              "displayable": true
+            },
+            "endConditionValue": null,
+            "preferredEndConditionUnit": null,
+            "endConditionCompare": null,
+            "targetType": {
+              "workoutTargetTypeId": 1,
+              "workoutTargetTypeKey": "no.target",
+              "displayOrder": 1
+            },
+            "targetValueOne": null,
+            "targetValueTwo": null,
+            "targetValueUnit": null,
+            "zoneNumber": null,
+            "secondaryTargetType": null,
+            "secondaryTargetValueOne": null,
+            "secondaryTargetValueTwo": null,
+            "secondaryTargetValueUnit": null,
+            "secondaryZoneNumber": null,
+            "endConditionZone": null,
+            "strokeType": {
+              "strokeTypeId": 0,
+              "strokeTypeKey": null,
+              "displayOrder": 0
+            },
+            "equipmentType": {
+              "equipmentTypeId": 0,
+              "equipmentTypeKey": null,
+              "displayOrder": 0
+            },
+            "category": null,
+            "exerciseName": null,
+            "workoutProvider": null,
+            "providerExerciseSourceId": null,
+            "weightValue": null,
+            "weightUnit": null
+          },
+          {
+            "type": "RepeatGroupDTO",
+            "stepId": 14852266977,
+            "stepOrder": 7,
+            "stepType": {
+              "stepTypeId": 6,
+              "stepTypeKey": "repeat",
+              "displayOrder": 6
+            },
+            "childStepId": 2,
+            "numberOfIterations": 4,
+            "workoutSteps": [
+              {
+                "type": "ExecutableStepDTO",
+                "stepId": 14852266979,
+                "stepOrder": 8,
+                "stepType": {
+                  "stepTypeId": 3,
+                  "stepTypeKey": "interval",
+                  "displayOrder": 3
+                },
+                "childStepId": 2,
+                "description": "Acceleration-Glider Drill\nTransition smoothly from walk to jog to run, then glide seamlessly back to a walk.",
+                "endCondition": {
+                  "conditionTypeId": 2,
+                  "conditionTypeKey": "time",
+                  "displayOrder": 2,
+                  "displayable": true
+                },
+                "endConditionValue": 30.0,
+                "preferredEndConditionUnit": null,
+                "endConditionCompare": null,
+                "targetType": {
+                  "workoutTargetTypeId": 1,
+                  "workoutTargetTypeKey": "no.target",
+                  "displayOrder": 1
+                },
+                "targetValueOne": null,
+                "targetValueTwo": null,
+                "targetValueUnit": null,
+                "zoneNumber": null,
+                "secondaryTargetType": null,
+                "secondaryTargetValueOne": null,
+                "secondaryTargetValueTwo": null,
+                "secondaryTargetValueUnit": null,
+                "secondaryZoneNumber": null,
+                "endConditionZone": null,
+                "strokeType": {
+                  "strokeTypeId": 0,
+                  "strokeTypeKey": null,
+                  "displayOrder": 0
+                },
+                "equipmentType": {
+                  "equipmentTypeId": 0,
+                  "equipmentTypeKey": null,
+                  "displayOrder": 0
+                },
+                "category": "RUN",
+                "exerciseName": "RUN",
+                "workoutProvider": null,
+                "providerExerciseSourceId": null,
+                "weightValue": null,
+                "weightUnit": null
+              }
+            ],
+            "endConditionValue": 4.0,
+            "preferredEndConditionUnit": null,
+            "endConditionCompare": null,
+            "endCondition": {
+              "conditionTypeId": 7,
+              "conditionTypeKey": "iterations",
+              "displayOrder": 7,
+              "displayable": false
+            },
+            "skipLastRestStep": null,
+            "smartRepeat": false
+          },
+          {
+            "type": "ExecutableStepDTO",
+            "stepId": 14852266981,
+            "stepOrder": 9,
+            "stepType": {
+              "stepTypeId": 7,
+              "stepTypeKey": "other",
+              "displayOrder": 7
+            },
+            "childStepId": null,
+            "description": "Up next: Pace Intervals",
+            "endCondition": {
+              "conditionTypeId": 1,
+              "conditionTypeKey": "lap.button",
+              "displayOrder": 1,
+              "displayable": true
+            },
+            "endConditionValue": null,
+            "preferredEndConditionUnit": null,
+            "endConditionCompare": null,
+            "targetType": {
+              "workoutTargetTypeId": 1,
+              "workoutTargetTypeKey": "no.target",
+              "displayOrder": 1
+            },
+            "targetValueOne": null,
+            "targetValueTwo": null,
+            "targetValueUnit": null,
+            "zoneNumber": null,
+            "secondaryTargetType": null,
+            "secondaryTargetValueOne": null,
+            "secondaryTargetValueTwo": null,
+            "secondaryTargetValueUnit": null,
+            "secondaryZoneNumber": null,
+            "endConditionZone": null,
+            "strokeType": {
+              "strokeTypeId": 0,
+              "strokeTypeKey": null,
+              "displayOrder": 0
+            },
+            "equipmentType": {
+              "equipmentTypeId": 0,
+              "equipmentTypeKey": null,
+              "displayOrder": 0
+            },
+            "category": null,
+            "exerciseName": null,
+            "workoutProvider": null,
+            "providerExerciseSourceId": null,
+            "weightValue": null,
+            "weightUnit": null
+          },
+          {
+            "type": "RepeatGroupDTO",
+            "stepId": 14852266984,
+            "stepOrder": 10,
+            "stepType": {
+              "stepTypeId": 6,
+              "stepTypeKey": "repeat",
+              "displayOrder": 6
+            },
+            "childStepId": 3,
+            "numberOfIterations": 5,
+            "workoutSteps": [
+              {
+                "type": "ExecutableStepDTO",
+                "stepId": 14852266985,
+                "stepOrder": 11,
+                "stepType": {
+                  "stepTypeId": 3,
+                  "stepTypeKey": "interval",
+                  "displayOrder": 3
+                },
+                "childStepId": 3,
+                "description": "Race goal pace.",
+                "endCondition": {
+                  "conditionTypeId": 3,
+                  "conditionTypeKey": "distance",
+                  "displayOrder": 3,
+                  "displayable": true
+                },
+                "endConditionValue": 800.0,
+                "preferredEndConditionUnit": {
+                  "unitId": 1,
+                  "unitKey": "meter",
+                  "factor": 100.0
+                },
+                "endConditionCompare": null,
+                "targetType": {
+                  "workoutTargetTypeId": 6,
+                  "workoutTargetTypeKey": "pace.zone",
+                  "displayOrder": 6
+                },
+                "targetValueOne": 2.9846216,
+                "targetValueTwo": 2.8778775,
+                "targetValueUnit": null,
+                "zoneNumber": null,
+                "secondaryTargetType": null,
+                "secondaryTargetValueOne": null,
+                "secondaryTargetValueTwo": null,
+                "secondaryTargetValueUnit": null,
+                "secondaryZoneNumber": null,
+                "endConditionZone": null,
+                "strokeType": {
+                  "strokeTypeId": 0,
+                  "strokeTypeKey": null,
+                  "displayOrder": 0
+                },
+                "equipmentType": {
+                  "equipmentTypeId": 0,
+                  "equipmentTypeKey": null,
+                  "displayOrder": 0
+                },
+                "category": "RUN",
+                "exerciseName": "RUN",
+                "workoutProvider": null,
+                "providerExerciseSourceId": null,
+                "weightValue": null,
+                "weightUnit": null
+              },
+              {
+                "type": "ExecutableStepDTO",
+                "stepId": 14852266986,
+                "stepOrder": 12,
+                "stepType": {
+                  "stepTypeId": 4,
+                  "stepTypeKey": "recovery",
+                  "displayOrder": 4
+                },
+                "childStepId": 3,
+                "description": "Walk for recovery.",
+                "endCondition": {
+                  "conditionTypeId": 2,
+                  "conditionTypeKey": "time",
+                  "displayOrder": 2,
+                  "displayable": true
+                },
+                "endConditionValue": 180.0,
+                "preferredEndConditionUnit": null,
+                "endConditionCompare": null,
+                "targetType": {
+                  "workoutTargetTypeId": 1,
+                  "workoutTargetTypeKey": "no.target",
+                  "displayOrder": 1
+                },
+                "targetValueOne": null,
+                "targetValueTwo": null,
+                "targetValueUnit": null,
+                "zoneNumber": null,
+                "secondaryTargetType": null,
+                "secondaryTargetValueOne": null,
+                "secondaryTargetValueTwo": null,
+                "secondaryTargetValueUnit": null,
+                "secondaryZoneNumber": null,
+                "endConditionZone": null,
+                "strokeType": {
+                  "strokeTypeId": 0,
+                  "strokeTypeKey": null,
+                  "displayOrder": 0
+                },
+                "equipmentType": {
+                  "equipmentTypeId": 0,
+                  "equipmentTypeKey": null,
+                  "displayOrder": 0
+                },
+                "category": null,
+                "exerciseName": null,
+                "workoutProvider": null,
+                "providerExerciseSourceId": null,
+                "weightValue": null,
+                "weightUnit": null
+              }
+            ],
+            "endConditionValue": 5.0,
+            "preferredEndConditionUnit": null,
+            "endConditionCompare": null,
+            "endCondition": {
+              "conditionTypeId": 7,
+              "conditionTypeKey": "iterations",
+              "displayOrder": 7,
+              "displayable": false
+            },
+            "skipLastRestStep": null,
+            "smartRepeat": false
+          },
+          {
+            "type": "ExecutableStepDTO",
+            "stepId": 14852266987,
+            "stepOrder": 13,
+            "stepType": {
+              "stepTypeId": 2,
+              "stepTypeKey": "cooldown",
+              "displayOrder": 2
+            },
+            "childStepId": null,
+            "description": "Walk or jog lightly.",
+            "endCondition": {
+              "conditionTypeId": 2,
+              "conditionTypeKey": "time",
+              "displayOrder": 2,
+              "displayable": true
+            },
+            "endConditionValue": 300.0,
+            "preferredEndConditionUnit": null,
+            "endConditionCompare": null,
+            "targetType": {
+              "workoutTargetTypeId": 1,
+              "workoutTargetTypeKey": "no.target",
+              "displayOrder": 1
+            },
+            "targetValueOne": null,
+            "targetValueTwo": null,
+            "targetValueUnit": null,
+            "zoneNumber": null,
+            "secondaryTargetType": null,
+            "secondaryTargetValueOne": null,
+            "secondaryTargetValueTwo": null,
+            "secondaryTargetValueUnit": null,
+            "secondaryZoneNumber": null,
+            "endConditionZone": null,
+            "strokeType": {
+              "strokeTypeId": 0,
+              "strokeTypeKey": null,
+              "displayOrder": 0
+            },
+            "equipmentType": {
+              "equipmentTypeId": 0,
+              "equipmentTypeKey": null,
+              "displayOrder": 0
+            },
+            "category": null,
+            "exerciseName": null,
+            "workoutProvider": null,
+            "providerExerciseSourceId": null,
+            "weightValue": null,
+            "weightUnit": null
+          }
+        ]
+      }
+    ],
+    "poolLength": null,
+    "poolLengthUnit": null,
+    "locale": null,
+    "workoutProvider": null,
+    "workoutSourceId": null,
+    "uploadTimestamp": null,
+    "atpPlanId": 1791152880,
+    "consumer": null,
+    "consumerName": null,
+    "consumerImageURL": null,
+    "consumerWebsiteURL": null,
+    "workoutNameI18nKey": null,
+    "descriptionI18nKey": null,
+    "avgTrainingSpeed": 0.0,
+    "estimateType": null,
+    "estimatedDistanceUnit": {
+      "unitId": null,
+      "unitKey": null,
+      "factor": null
+    },
+    "workoutThumbnailUrl": "https://connect.garmin.com/chart-service/workout?data=md:s1,c2=300000.0;s7,c1;4(s3,c2=30000.0,t3=v150.0~200.0;s4,c2=30000.0;);s7,c1;4(s3,c2=30000.0;);s7,c1;5(s3,c3=80000.0,t6=v0.29846216105316786~0.2877877535507875;s4,c2=180000.0;);s2,c2=300000.0;",
     "isSessionTransitionEnabled": null,
     "specializedWorkoutCategories": [
       "ATP"
