@@ -43,8 +43,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "protected": true,
-          "race": false
+          "race": false,
+          "protected": true
         },
         {
           "scheduledWorkoutId": 1801579084,
@@ -71,8 +71,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "protected": false,
-          "race": false
+          "race": false,
+          "protected": false
         },
         {
           "scheduledWorkoutId": 1801579086,
@@ -80,7 +80,7 @@
           "workoutId": 1722467589,
           "workoutName": "Long Easy Run",
           "workoutType": "running",
-          "scheduleDate": "2026-10-11",
+          "scheduleDate": "2026-10-10",
           "atpPlanId": 1791152880,
           "atpPlanTypeId": null,
           "itpPlanId": null,
@@ -99,14 +99,42 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "protected": false,
-          "race": false
+          "race": false,
+          "protected": false
         },
         {
           "scheduledWorkoutId": 1801579087,
           "workoutUuid": null,
           "workoutId": 1722467590,
           "workoutName": "Goal Pace Repeats",
+          "workoutType": "running",
+          "scheduleDate": "2026-10-12",
+          "atpPlanId": 1791152880,
+          "atpPlanTypeId": null,
+          "itpPlanId": null,
+          "selfGuidedPlanId": null,
+          "fbtAdaptivePlanId": null,
+          "tpPlanName": null,
+          "ownerId": 148788505,
+          "associatedActivityId": null,
+          "priority": null,
+          "associatedActivityDateTime": null,
+          "estimatedDurationInSecs": null,
+          "estimatedDistanceInMeters": null,
+          "estimateType": null,
+          "estimatedDistanceUnit": null,
+          "trainingPlanId": null,
+          "tpType": null,
+          "workoutPhrase": null,
+          "isRestDay": null,
+          "race": false,
+          "protected": false
+        },
+        {
+          "scheduledWorkoutId": 1802765970,
+          "workoutUuid": null,
+          "workoutId": 1723690425,
+          "workoutName": "Magic Mile",
           "workoutType": "running",
           "scheduleDate": "2026-10-14",
           "atpPlanId": 1791152880,
@@ -127,36 +155,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "protected": false,
-          "race": false
-        },
-        {
-          "scheduledWorkoutId": 1802765970,
-          "workoutUuid": null,
-          "workoutId": 1723690425,
-          "workoutName": "Magic Mile",
-          "workoutType": "running",
-          "scheduleDate": "2026-10-16",
-          "atpPlanId": 1791152880,
-          "atpPlanTypeId": null,
-          "itpPlanId": null,
-          "selfGuidedPlanId": null,
-          "fbtAdaptivePlanId": null,
-          "tpPlanName": null,
-          "ownerId": 148788505,
-          "associatedActivityId": null,
-          "priority": null,
-          "associatedActivityDateTime": null,
-          "estimatedDurationInSecs": null,
-          "estimatedDistanceInMeters": null,
-          "estimateType": null,
-          "estimatedDistanceUnit": null,
-          "trainingPlanId": null,
-          "tpType": null,
-          "workoutPhrase": null,
-          "isRestDay": null,
-          "protected": false,
-          "race": false
+          "race": false,
+          "protected": false
         }
       ]
     }
