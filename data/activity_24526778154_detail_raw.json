@@ -90,8 +90,8 @@
     "runPowerWindDataEnabled": null,
     "trimmed": false,
     "autoCalcCalories": false,
-    "manualActivity": false,
     "favorite": false,
+    "manualActivity": false,
     "elevationCorrected": true
   },
   "summaryDTO": {
