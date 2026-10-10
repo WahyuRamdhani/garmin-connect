@@ -50,52 +50,6 @@ Date: 2026-10-10 (2026-10-10 05:51:37)
 | 4 | 165 | 0.0 | 0.0% |
 | 5 | 178 | 0.0 | 0.0% |
 
-## Garmin Coach schedule
-Week containing: 2026-10-10
-
-| Date | Workout | Type | Est. duration (min) | Est. distance (km) | Status |
-|---|---|---|---|---|---|
-| 2026-10-07 | Benchmark Run |  |  |  | Completed |
-| 2026-10-09 | Hill Repeats |  |  |  | Completed |
-| 2026-10-10 | Long Easy Run |  |  |  | Completed |
-| 2026-10-12 | Goal Pace Repeats |  |  |  | Scheduled |
-| 2026-10-14 | Magic Mile |  |  |  | Scheduled |
-| 2026-10-16 | Run Walk Run® |  |  |  | Scheduled |
-
-## Garmin Coach workout details
-### Goal Pace Repeats (1722467590)
-Segment 1:
-- warmup; time=300.0; target=no.target:None
-- other; lap.button=; target=no.target:None
-- repeat; iterations=4.0
-  - interval; time=30.0; target=cadence:150.0
-  - recovery; time=30.0; target=no.target:None
-- other; lap.button=; target=no.target:None
-- repeat; iterations=4.0
-  - interval; time=30.0; target=no.target:None
-- other; lap.button=; target=no.target:None
-- repeat; iterations=5.0
-  - interval; distance=800.0; target=pace.zone:2.9846216
-  - recovery; time=180.0; target=no.target:None
-- cooldown; time=300.0; target=no.target:None
-### Magic Mile (1723690425)
-Segment 1:
-- warmup; time=300.0; target=no.target:None
-- other; lap.button=; target=no.target:None
-- repeat; iterations=4.0
-  - interval; time=30.0; target=cadence:150.0
-  - recovery; time=30.0; target=no.target:None
-- other; lap.button=; target=no.target:None
-- repeat; iterations=4.0
-  - interval; time=30.0; target=no.target:None
-- interval; distance=1609.0; target=no.target:None
-- cooldown; time=300.0; target=no.target:None
-### Run Walk Run® (1724474811)
-Segment 1:
-- warmup; time=600.0; target=no.target:None
-- interval; distance=8045.0; target=no.target:None
-- cooldown; time=600.0; target=no.target:None
-
 ## Timeseries (Charts tab data)
 1318 samples. Column names are Garmin's own field names; `elapsed_s` is seconds since the run started.
 

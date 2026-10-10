@@ -86,13 +86,13 @@
     "sessionResultType": "ORIGINAL",
     "hasMultiDayActivities": false,
     "personalRecord": false,
-    "trimmed": false,
-    "elevationCorrected": true,
-    "manualActivity": false,
-    "autoCalcCalories": false,
-    "favorite": false,
+    "gcj02": false,
     "runPowerWindDataEnabled": null,
-    "gcj02": false
+    "manualActivity": false,
+    "favorite": false,
+    "trimmed": false,
+    "autoCalcCalories": false,
+    "elevationCorrected": true
   },
   "summaryDTO": {
     "startTimeLocal": "2026-09-30T05:37:51.0",
