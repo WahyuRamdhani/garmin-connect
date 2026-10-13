@@ -39,7 +39,7 @@
       "formatKey": "fit"
     },
     "associatedCourseId": null,
-    "lastUpdateDate": "2026-10-07T10:16:46.0",
+    "lastUpdateDate": "2026-10-13T10:25:54.0",
     "uploadedDate": "2026-10-07T10:16:46.0",
     "videoUrl": null,
     "hasPolyline": true,
@@ -85,14 +85,14 @@
     "trainingPlanId": 1791152880,
     "sessionResultType": "ORIGINAL",
     "hasMultiDayActivities": false,
-    "personalRecord": true,
+    "personalRecord": false,
     "gcj02": false,
     "runPowerWindDataEnabled": null,
-    "manualActivity": false,
-    "favorite": false,
+    "elevationCorrected": true,
     "trimmed": false,
+    "manualActivity": false,
     "autoCalcCalories": false,
-    "elevationCorrected": true
+    "favorite": false
   },
   "summaryDTO": {
     "startTimeLocal": "2026-10-07T17:07:16.0",
