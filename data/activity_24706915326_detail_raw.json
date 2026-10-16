@@ -85,14 +85,14 @@
     "trainingPlanId": 1791152880,
     "sessionResultType": "ORIGINAL",
     "hasMultiDayActivities": false,
-    "personalRecord": true,
-    "gcj02": false,
-    "runPowerWindDataEnabled": null,
-    "trimmed": false,
-    "manualActivity": false,
     "autoCalcCalories": false,
     "favorite": false,
-    "elevationCorrected": true
+    "trimmed": false,
+    "runPowerWindDataEnabled": null,
+    "manualActivity": false,
+    "elevationCorrected": true,
+    "personalRecord": true,
+    "gcj02": false
   },
   "summaryDTO": {
     "startTimeLocal": "2026-10-13T16:54:38.0",
