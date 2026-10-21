@@ -222,13 +222,13 @@
   "endTimeGMT": "2026-10-18 10:51:08",
   "qualifyingDive": false,
   "activityUUID": "084df3eb-03df-40fb-9498-9456956f1e91",
+  "pr": false,
+  "favorite": false,
+  "purposeful": false,
+  "parent": false,
+  "manualActivity": false,
   "decoDive": false,
   "autoCalcCalories": false,
-  "favorite": false,
   "elevationCorrected": true,
-  "atpActivity": true,
-  "purposeful": false,
-  "manualActivity": false,
-  "pr": false,
-  "parent": false
+  "atpActivity": true
 }

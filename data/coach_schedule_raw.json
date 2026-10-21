@@ -11,69 +11,13 @@
           "raceName": "Half Marathon Plan",
           "raceUrl": null
         },
-        "remainingAtpWorkoutsForWeek": 0,
+        "remainingAtpWorkoutsForWeek": 2,
         "workoutsPerWeek": 3,
         "registrationDate": "2026-10-04T22:28:00.313",
         "planCompleted": false,
         "workoutPlanTypeId": 3
       },
       "workoutScheduleSummaries": [
-        {
-          "scheduledWorkoutId": 1801579087,
-          "workoutUuid": null,
-          "workoutId": 1722467590,
-          "workoutName": "Goal Pace Repeats",
-          "workoutType": "running",
-          "scheduleDate": "2026-10-12",
-          "atpPlanId": 1791152880,
-          "atpPlanTypeId": null,
-          "itpPlanId": null,
-          "selfGuidedPlanId": null,
-          "fbtAdaptivePlanId": null,
-          "tpPlanName": null,
-          "ownerId": 148788505,
-          "associatedActivityId": 24691304266,
-          "priority": null,
-          "associatedActivityDateTime": "2026-10-12T05:16:13.0",
-          "estimatedDurationInSecs": null,
-          "estimatedDistanceInMeters": null,
-          "estimateType": null,
-          "estimatedDistanceUnit": null,
-          "trainingPlanId": null,
-          "tpType": null,
-          "workoutPhrase": null,
-          "isRestDay": null,
-          "protected": false,
-          "race": false
-        },
-        {
-          "scheduledWorkoutId": 1802765970,
-          "workoutUuid": null,
-          "workoutId": 1723690425,
-          "workoutName": "Magic Mile",
-          "workoutType": "running",
-          "scheduleDate": "2026-10-13",
-          "atpPlanId": 1791152880,
-          "atpPlanTypeId": null,
-          "itpPlanId": null,
-          "selfGuidedPlanId": null,
-          "fbtAdaptivePlanId": null,
-          "tpPlanName": null,
-          "ownerId": 148788505,
-          "associatedActivityId": 24706915326,
-          "priority": null,
-          "associatedActivityDateTime": "2026-10-13T16:54:38.0",
-          "estimatedDurationInSecs": null,
-          "estimatedDistanceInMeters": null,
-          "estimateType": null,
-          "estimatedDistanceUnit": null,
-          "trainingPlanId": null,
-          "tpType": null,
-          "workoutPhrase": null,
-          "isRestDay": null,
-          "protected": false,
-          "race": false
-        },
         {
           "scheduledWorkoutId": 1807933508,
           "workoutUuid": null,
@@ -99,8 +43,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "protected": false,
-          "race": false
+          "race": false,
+          "protected": false
         },
         {
           "scheduledWorkoutId": 1803542419,
@@ -127,8 +71,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "protected": false,
-          "race": false
+          "race": false,
+          "protected": false
         },
         {
           "scheduledWorkoutId": 1805711960,
@@ -137,6 +81,34 @@
           "workoutName": "Goal Pace Repeats",
           "workoutType": "running",
           "scheduleDate": "2026-10-21",
+          "atpPlanId": 1791152880,
+          "atpPlanTypeId": null,
+          "itpPlanId": null,
+          "selfGuidedPlanId": null,
+          "fbtAdaptivePlanId": null,
+          "tpPlanName": null,
+          "ownerId": 148788505,
+          "associatedActivityId": 24797114559,
+          "priority": null,
+          "associatedActivityDateTime": "2026-10-21T05:37:57.0",
+          "estimatedDurationInSecs": null,
+          "estimatedDistanceInMeters": null,
+          "estimateType": null,
+          "estimatedDistanceUnit": null,
+          "trainingPlanId": null,
+          "tpType": null,
+          "workoutPhrase": null,
+          "isRestDay": null,
+          "race": false,
+          "protected": false
+        },
+        {
+          "scheduledWorkoutId": 1811899470,
+          "workoutUuid": null,
+          "workoutId": 1732889000,
+          "workoutName": "Goal Pace Repeats",
+          "workoutType": "running",
+          "scheduleDate": "2026-10-23",
           "atpPlanId": 1791152880,
           "atpPlanTypeId": null,
           "itpPlanId": null,
@@ -155,8 +127,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "protected": false,
-          "race": false
+          "race": false,
+          "protected": false
         },
         {
           "scheduledWorkoutId": 1810745340,
@@ -183,14 +155,14 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "protected": false,
-          "race": false
+          "race": false,
+          "protected": false
         },
         {
-          "scheduledWorkoutId": 1811899470,
+          "scheduledWorkoutId": 1815671299,
           "workoutUuid": null,
-          "workoutId": 1732889000,
-          "workoutName": "Goal Pace Repeats",
+          "workoutId": 1736655448,
+          "workoutName": "Magic Mile",
           "workoutType": "running",
           "scheduleDate": "2026-10-28",
           "atpPlanId": 1791152880,
@@ -211,8 +183,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "protected": false,
-          "race": false
+          "race": false,
+          "protected": false
         }
       ]
     }
