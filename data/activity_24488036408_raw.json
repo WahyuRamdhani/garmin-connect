@@ -8,8 +8,8 @@
     "typeKey": "running",
     "parentTypeId": 17,
     "isHidden": false,
-    "restricted": false,
-    "trimmable": true
+    "trimmable": true,
+    "restricted": false
   },
   "eventType": {
     "typeId": 9,
@@ -207,13 +207,13 @@
   "endTimeGMT": "2026-09-25 00:04:37",
   "qualifyingDive": false,
   "activityUUID": "e3940948-318b-4968-902b-fa9acd8e2c4b",
-  "pr": false,
-  "favorite": false,
-  "purposeful": false,
-  "parent": false,
-  "manualActivity": false,
-  "decoDive": false,
-  "autoCalcCalories": false,
+  "atpActivity": true,
   "elevationCorrected": true,
-  "atpActivity": true
+  "autoCalcCalories": false,
+  "favorite": false,
+  "decoDive": false,
+  "purposeful": false,
+  "manualActivity": false,
+  "pr": false,
+  "parent": false
 }

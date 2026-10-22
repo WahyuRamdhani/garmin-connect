@@ -11,7 +11,7 @@
           "raceName": "Half Marathon Plan",
           "raceUrl": null
         },
-        "remainingAtpWorkoutsForWeek": 2,
+        "remainingAtpWorkoutsForWeek": 1,
         "workoutsPerWeek": 3,
         "registrationDate": "2026-10-04T22:28:00.313",
         "planCompleted": false,
@@ -43,8 +43,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "race": false,
-          "protected": false
+          "protected": false,
+          "race": false
         },
         {
           "scheduledWorkoutId": 1803542419,
@@ -71,8 +71,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "race": false,
-          "protected": false
+          "protected": false,
+          "race": false
         },
         {
           "scheduledWorkoutId": 1805711960,
@@ -99,8 +99,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "race": false,
-          "protected": false
+          "protected": false,
+          "race": false
         },
         {
           "scheduledWorkoutId": 1811899470,
@@ -116,9 +116,9 @@
           "fbtAdaptivePlanId": null,
           "tpPlanName": null,
           "ownerId": 148788505,
-          "associatedActivityId": null,
+          "associatedActivityId": 24820077815,
           "priority": null,
-          "associatedActivityDateTime": null,
+          "associatedActivityDateTime": "2026-10-23T05:33:29.0",
           "estimatedDurationInSecs": null,
           "estimatedDistanceInMeters": null,
           "estimateType": null,
@@ -127,8 +127,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "race": false,
-          "protected": false
+          "protected": false,
+          "race": false
         },
         {
           "scheduledWorkoutId": 1810745340,
@@ -155,8 +155,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "race": false,
-          "protected": false
+          "protected": false,
+          "race": false
         },
         {
           "scheduledWorkoutId": 1815671299,
@@ -183,8 +183,36 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "race": false,
-          "protected": false
+          "protected": false,
+          "race": false
+        },
+        {
+          "scheduledWorkoutId": 1817167496,
+          "workoutUuid": null,
+          "workoutId": 1738182671,
+          "workoutName": "Speed Repeats",
+          "workoutType": "running",
+          "scheduleDate": "2026-10-30",
+          "atpPlanId": 1791152880,
+          "atpPlanTypeId": null,
+          "itpPlanId": null,
+          "selfGuidedPlanId": null,
+          "fbtAdaptivePlanId": null,
+          "tpPlanName": null,
+          "ownerId": 148788505,
+          "associatedActivityId": null,
+          "priority": null,
+          "associatedActivityDateTime": null,
+          "estimatedDurationInSecs": null,
+          "estimatedDistanceInMeters": null,
+          "estimateType": null,
+          "estimatedDistanceUnit": null,
+          "trainingPlanId": null,
+          "tpType": null,
+          "workoutPhrase": null,
+          "isRestDay": null,
+          "protected": false,
+          "race": false
         }
       ]
     }
