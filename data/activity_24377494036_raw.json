@@ -8,8 +8,8 @@
     "typeKey": "running",
     "parentTypeId": 17,
     "isHidden": false,
-    "trimmable": true,
-    "restricted": false
+    "restricted": false,
+    "trimmable": true
   },
   "eventType": {
     "typeId": 9,
@@ -70,6 +70,7 @@
     "SCOPE_CONNECT_API_CREATE_UPDATE_USER",
     "SCOPE_MESSAGE_GENERATION_READ",
     "SCOPE_DI_OAUTH_2_CLIENT_REVOCATION_ADMIN",
+    "SCOPE_GCS_RACEINSIGHTS_ADMIN_READ",
     "SCOPE_GCX_PET_ADMIN_READ",
     "SCOPE_CONNECT_NON_SOCIAL_SHARED_READ",
     "SCOPE_DI_OAUTH_2_PRERELEASE_PERMISSIONS_ADMIN_WRITE",
@@ -222,13 +223,13 @@
   "endTimeGMT": "2026-09-15 23:50:42",
   "qualifyingDive": false,
   "activityUUID": "864601d1-fa3a-4962-8421-b9e13828bde1",
-  "atpActivity": true,
+  "decoDive": false,
   "elevationCorrected": true,
+  "atpActivity": true,
+  "pr": false,
   "autoCalcCalories": false,
   "favorite": false,
-  "decoDive": false,
   "purposeful": false,
   "manualActivity": false,
-  "pr": false,
   "parent": false
 }

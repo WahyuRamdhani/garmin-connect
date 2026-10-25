@@ -39,7 +39,7 @@
       "formatKey": "fit"
     },
     "associatedCourseId": null,
-    "lastUpdateDate": "2026-10-10T00:45:17.0",
+    "lastUpdateDate": "2026-10-25T00:15:37.0",
     "uploadedDate": "2026-10-10T00:45:16.0",
     "videoUrl": null,
     "hasPolyline": true,
@@ -86,12 +86,12 @@
     "sessionResultType": "ORIGINAL",
     "hasMultiDayActivities": false,
     "runPowerWindDataEnabled": null,
+    "manualActivity": false,
+    "trimmed": false,
+    "elevationCorrected": true,
     "autoCalcCalories": false,
     "favorite": false,
-    "manualActivity": false,
-    "elevationCorrected": true,
-    "trimmed": false,
-    "personalRecord": true,
+    "personalRecord": false,
     "gcj02": false
   },
   "summaryDTO": {
