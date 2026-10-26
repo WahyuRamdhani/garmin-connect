@@ -91,8 +91,8 @@
     "elevationCorrected": true,
     "autoCalcCalories": false,
     "favorite": false,
-    "trimmed": false,
-    "manualActivity": false
+    "manualActivity": false,
+    "trimmed": false
   },
   "summaryDTO": {
     "startTimeLocal": "2026-09-14T16:43:11.0",

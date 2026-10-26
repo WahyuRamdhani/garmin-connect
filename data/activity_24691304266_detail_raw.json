@@ -87,10 +87,10 @@
     "hasMultiDayActivities": false,
     "personalRecord": false,
     "gcj02": false,
-    "runPowerWindDataEnabled": null,
-    "trimmed": false,
     "elevationCorrected": true,
+    "runPowerWindDataEnabled": null,
     "manualActivity": false,
+    "trimmed": false,
     "autoCalcCalories": false,
     "favorite": false
   },

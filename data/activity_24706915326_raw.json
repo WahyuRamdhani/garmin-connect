@@ -17,7 +17,7 @@
     "sortOrder": 10
   },
   "isFavorite": false,
-  "isPR": true,
+  "isPR": false,
   "isAutoCalcCalories": false,
   "isParent": false,
   "distance": 3224.530029296875,
@@ -237,13 +237,13 @@
   "endTimeGMT": "2026-10-13 10:20:36",
   "qualifyingDive": false,
   "activityUUID": "fe88913c-4380-404d-9a5c-33406e4a539b",
-  "decoDive": false,
   "elevationCorrected": true,
-  "atpActivity": true,
-  "pr": true,
   "autoCalcCalories": false,
+  "pr": false,
   "favorite": false,
-  "purposeful": false,
   "manualActivity": false,
+  "purposeful": false,
+  "atpActivity": true,
+  "decoDive": false,
   "parent": false
 }
