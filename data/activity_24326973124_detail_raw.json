@@ -89,8 +89,8 @@
     "gcj02": false,
     "runPowerWindDataEnabled": null,
     "elevationCorrected": true,
-    "manualActivity": false,
     "trimmed": false,
+    "manualActivity": false,
     "autoCalcCalories": false,
     "favorite": false
   },
