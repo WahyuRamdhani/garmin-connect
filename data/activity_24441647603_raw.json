@@ -49,6 +49,7 @@
     "SCOPE_ATP_READ",
     "SCOPE_COMMUNITY_COURSE_ADMIN_READ",
     "SCOPE_GCX_KID_WRITE",
+    "SCOPE_CIQ_APPSTORE_SERVICES_CREATE",
     "SCOPE_DT_ACTIVE_INTELLIGENCE_READ",
     "SCOPE_COMMUNITY_COURSE_WRITE",
     "SCOPE_GCX_KID_ADMIN_READ",
@@ -236,13 +237,13 @@
   "endTimeGMT": "2026-09-21 10:52:28",
   "qualifyingDive": false,
   "activityUUID": "0db09425-3c51-4712-aa8f-e8c730e95177",
-  "autoCalcCalories": false,
-  "elevationCorrected": true,
-  "atpActivity": true,
+  "parent": false,
+  "favorite": false,
+  "decoDive": false,
   "pr": false,
   "purposeful": false,
   "manualActivity": false,
-  "decoDive": false,
-  "favorite": false,
-  "parent": false
+  "autoCalcCalories": false,
+  "elevationCorrected": true,
+  "atpActivity": true
 }

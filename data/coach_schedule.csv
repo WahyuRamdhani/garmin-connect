@@ -3,6 +3,7 @@ date,plan_name,workout_name,sport,workout_type,estimated_duration_min,estimated_
 2026-10-23,,Goal Pace Repeats,running,,,,True,24820077815,1732889000,,False,False
 2026-10-25,,Long Easy Run,running,,,,True,24840983628,1731721385,,False,False
 2026-10-27,,Magic Mile,running,,,,True,24863050548,1736655448,,False,False
-2026-10-29,,Speed Repeats,running,,,,False,,1738182671,,False,False
+2026-10-29,,Speed Repeats,running,,,,True,24887859889,1738182671,,False,False
 2026-11-01,,Goal Pace Repeats,running,,,,False,,1739734153,,False,False
 2026-11-04,,Hill Repeats,running,,,,False,,1742938774,,False,False
+2026-11-06,,Long Easy Run,running,,,,False,,1744698943,,False,False
