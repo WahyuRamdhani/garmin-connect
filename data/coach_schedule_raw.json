@@ -11,41 +11,13 @@
           "raceName": "Half Marathon Plan",
           "raceUrl": null
         },
-        "remainingAtpWorkoutsForWeek": 3,
+        "remainingAtpWorkoutsForWeek": 2,
         "workoutsPerWeek": 3,
         "registrationDate": "2026-10-04T22:28:00.313",
         "planCompleted": false,
         "workoutPlanTypeId": 3
       },
       "workoutScheduleSummaries": [
-        {
-          "scheduledWorkoutId": 1815671299,
-          "workoutUuid": null,
-          "workoutId": 1736655448,
-          "workoutName": "Magic Mile",
-          "workoutType": "running",
-          "scheduleDate": "2026-10-27",
-          "atpPlanId": 1791152880,
-          "atpPlanTypeId": null,
-          "itpPlanId": null,
-          "selfGuidedPlanId": null,
-          "fbtAdaptivePlanId": null,
-          "tpPlanName": null,
-          "ownerId": 148788505,
-          "associatedActivityId": 24863050548,
-          "priority": null,
-          "associatedActivityDateTime": "2026-10-27T05:29:56.0",
-          "estimatedDurationInSecs": null,
-          "estimatedDistanceInMeters": null,
-          "estimateType": null,
-          "estimatedDistanceUnit": null,
-          "trainingPlanId": null,
-          "tpType": null,
-          "workoutPhrase": null,
-          "isRestDay": null,
-          "race": false,
-          "protected": false
-        },
         {
           "scheduledWorkoutId": 1817167496,
           "workoutUuid": null,
@@ -71,8 +43,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "race": false,
-          "protected": false
+          "protected": false,
+          "race": false
         },
         {
           "scheduledWorkoutId": 1821941875,
@@ -99,8 +71,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "race": false,
-          "protected": false
+          "protected": false,
+          "race": false
         },
         {
           "scheduledWorkoutId": 1818703460,
@@ -116,9 +88,9 @@
           "fbtAdaptivePlanId": null,
           "tpPlanName": null,
           "ownerId": 148788505,
-          "associatedActivityId": null,
+          "associatedActivityId": 24969981580,
           "priority": null,
-          "associatedActivityDateTime": null,
+          "associatedActivityDateTime": "2026-11-05T05:53:01.0",
           "estimatedDurationInSecs": null,
           "estimatedDistanceInMeters": null,
           "estimateType": null,
@@ -127,8 +99,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "race": false,
-          "protected": false
+          "protected": false,
+          "race": false
         },
         {
           "scheduledWorkoutId": 1823674082,
@@ -155,8 +127,8 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "race": false,
-          "protected": false
+          "protected": false,
+          "race": false
         },
         {
           "scheduledWorkoutId": 1829750136,
@@ -183,8 +155,36 @@
           "tpType": null,
           "workoutPhrase": null,
           "isRestDay": null,
-          "race": false,
-          "protected": false
+          "protected": false,
+          "race": false
+        },
+        {
+          "scheduledWorkoutId": 1831146353,
+          "workoutUuid": null,
+          "workoutId": 1752171848,
+          "workoutName": "Goal Pace Repeats",
+          "workoutType": "running",
+          "scheduleDate": "2026-11-11",
+          "atpPlanId": 1791152880,
+          "atpPlanTypeId": null,
+          "itpPlanId": null,
+          "selfGuidedPlanId": null,
+          "fbtAdaptivePlanId": null,
+          "tpPlanName": null,
+          "ownerId": 148788505,
+          "associatedActivityId": null,
+          "priority": null,
+          "associatedActivityDateTime": null,
+          "estimatedDurationInSecs": null,
+          "estimatedDistanceInMeters": null,
+          "estimateType": null,
+          "estimatedDistanceUnit": null,
+          "trainingPlanId": null,
+          "tpType": null,
+          "workoutPhrase": null,
+          "isRestDay": null,
+          "protected": false,
+          "race": false
         }
       ]
     }
