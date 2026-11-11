@@ -81,7 +81,8 @@
     "ROLE_CONNECTUSER",
     "ROLE_FITNESS_USER",
     "ROLE_WELLNESS_USER",
-    "ROLE_GARMIN_USER"
+    "ROLE_GARMIN_USER",
+    "ROLE_GCW_USER"
   ],
   "privacy": {
     "typeId": 2,
@@ -239,13 +240,13 @@
   "endTimeGMT": "2026-10-29 00:01:30",
   "qualifyingDive": false,
   "activityUUID": "900e9b23-2213-49c8-941b-404dfa76195f",
-  "purposeful": false,
-  "pr": false,
-  "favorite": false,
-  "parent": false,
-  "decoDive": false,
-  "manualActivity": false,
   "autoCalcCalories": false,
   "elevationCorrected": true,
-  "atpActivity": true
+  "atpActivity": true,
+  "purposeful": false,
+  "manualActivity": false,
+  "favorite": false,
+  "decoDive": false,
+  "parent": false,
+  "pr": false
 }
