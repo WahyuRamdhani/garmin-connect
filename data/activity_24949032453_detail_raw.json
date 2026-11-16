@@ -11,8 +11,8 @@
     "typeKey": "running",
     "parentTypeId": 17,
     "isHidden": false,
-    "trimmable": true,
-    "restricted": false
+    "restricted": false,
+    "trimmable": true
   },
   "eventTypeDTO": {
     "typeId": 9,
@@ -86,13 +86,13 @@
     "sessionResultType": "ORIGINAL",
     "hasMultiDayActivities": false,
     "personalRecord": false,
-    "runPowerWindDataEnabled": null,
     "gcj02": false,
+    "runPowerWindDataEnabled": null,
+    "autoCalcCalories": false,
     "favorite": false,
     "manualActivity": false,
-    "autoCalcCalories": false,
-    "elevationCorrected": true,
-    "trimmed": false
+    "trimmed": false,
+    "elevationCorrected": true
   },
   "summaryDTO": {
     "startTimeLocal": "2026-11-03T16:08:04.0",
