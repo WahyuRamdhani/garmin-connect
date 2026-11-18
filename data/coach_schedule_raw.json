@@ -11,7 +11,7 @@
           "raceName": "Half Marathon Plan",
           "raceUrl": null
         },
-        "remainingAtpWorkoutsForWeek": 3,
+        "remainingAtpWorkoutsForWeek": 2,
         "workoutsPerWeek": 3,
         "registrationDate": "2026-10-04T22:28:00.313",
         "planCompleted": false,
@@ -131,10 +131,10 @@
           "race": false
         },
         {
-          "scheduledWorkoutId": 1837736265,
+          "scheduledWorkoutId": 1841164914,
           "workoutUuid": null,
-          "workoutId": 1758755069,
-          "workoutName": "Long Easy Run",
+          "workoutId": 1762213850,
+          "workoutName": "Magic Mile",
           "workoutType": "running",
           "scheduleDate": "2026-11-19",
           "atpPlanId": 1791152880,
@@ -159,12 +159,12 @@
           "race": false
         },
         {
-          "scheduledWorkoutId": 1841164914,
+          "scheduledWorkoutId": 1837736265,
           "workoutUuid": null,
-          "workoutId": 1762213850,
-          "workoutName": "Magic Mile",
+          "workoutId": 1758755069,
+          "workoutName": "Long Easy Run",
           "workoutType": "running",
-          "scheduleDate": "2026-11-21",
+          "scheduleDate": "2026-11-20",
           "atpPlanId": 1791152880,
           "atpPlanTypeId": null,
           "itpPlanId": null,
@@ -192,7 +192,7 @@
           "workoutId": 1765040315,
           "workoutName": "Speed Repeats",
           "workoutType": "running",
-          "scheduleDate": "2026-11-22",
+          "scheduleDate": "2026-11-23",
           "atpPlanId": 1791152880,
           "atpPlanTypeId": null,
           "itpPlanId": null,
