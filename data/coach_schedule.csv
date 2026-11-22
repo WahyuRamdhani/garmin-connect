@@ -1,8 +1,9 @@
 date,plan_name,workout_name,sport,workout_type,estimated_duration_min,estimated_distance_km,completed,activity_id,workout_id,workout_uuid,is_rest_day,is_race_day
-2026-11-13,,Hill Repeats,running,,,,True,25063099858,1754581663,,False,False
 2026-11-15,,Goal Pace Repeats,running,,,,True,25085499681,1752171848,,False,False
 2026-11-17,,Goal Pace Repeats,running,,,,True,25102682020,1760513971,,False,False
 2026-11-19,,Magic Mile,running,,,,True,25125473945,1762213850,,False,False
 2026-11-21,,Goal Pace Repeats,running,,,,False,,1766791308,,False,False
-2026-11-22,,Speed Repeats,running,,,,False,,1765040315,,False,False
+2026-11-22,,Speed Repeats,running,,,,True,25157854896,1765040315,,False,False
 2026-11-25,,Long Easy Run,running,,,,False,,1758755069,,False,False
+2026-11-27,,Hill Repeats,running,,,,False,,1769028813,,False,False
+2026-11-29,,Long Easy Run,running,,,,False,,1769169040,,False,False
