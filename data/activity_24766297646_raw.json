@@ -8,8 +8,8 @@
     "typeKey": "running",
     "parentTypeId": 17,
     "isHidden": false,
-    "trimmable": true,
-    "restricted": false
+    "restricted": false,
+    "trimmable": true
   },
   "eventType": {
     "typeId": 9,
@@ -226,11 +226,11 @@
   "qualifyingDive": false,
   "activityUUID": "084df3eb-03df-40fb-9498-9456956f1e91",
   "favorite": false,
-  "pr": false,
   "purposeful": false,
-  "manualActivity": false,
+  "pr": false,
   "parent": false,
   "decoDive": false,
+  "manualActivity": false,
   "autoCalcCalories": false,
   "elevationCorrected": true,
   "atpActivity": true
