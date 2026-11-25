@@ -90,9 +90,9 @@
     "runPowerWindDataEnabled": null,
     "autoCalcCalories": false,
     "favorite": false,
-    "trimmed": false,
+    "manualActivity": false,
     "elevationCorrected": true,
-    "manualActivity": false
+    "trimmed": false
   },
   "summaryDTO": {
     "startTimeLocal": "2026-11-15T17:16:14.0",

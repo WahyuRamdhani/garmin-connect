@@ -88,10 +88,10 @@
     "personalRecord": true,
     "gcj02": false,
     "runPowerWindDataEnabled": null,
-    "elevationCorrected": true,
     "manualActivity": false,
-    "favorite": false,
+    "elevationCorrected": true,
     "autoCalcCalories": false,
+    "favorite": false,
     "trimmed": false
   },
   "summaryDTO": {
